@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "badmintons",
+  "info": {
+    "singularName": "badminton",
+    "pluralName": "badmintons",
+    "displayName": "badminton",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "badmintons"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "badmintons"
+    },
+    "navigation": {
+      "type": "string"
+    }
+  }
+}

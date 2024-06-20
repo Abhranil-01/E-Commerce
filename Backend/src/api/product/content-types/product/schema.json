@@ -1,0 +1,99 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "price": {
+      "type": "float"
+    },
+    "description": {
+      "type": "text"
+    },
+    "size": {
+      "type": "string"
+    },
+    "new": {
+      "type": "boolean"
+    },
+    "footballs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::football.football",
+      "inversedBy": "products"
+    },
+    "crickets": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cricket.cricket",
+      "inversedBy": "products"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Gender": {
+      "type": "string"
+    },
+    "SizeOne": {
+      "type": "string"
+    },
+    "SizeTwo": {
+      "type": "string"
+    },
+    "SizeThree": {
+      "type": "string"
+    },
+    "SizeFour": {
+      "type": "string"
+    },
+    "SizeFive": {
+      "type": "string"
+    },
+    "badmintons": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::badminton.badminton",
+      "inversedBy": "products"
+    },
+    "runnings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::running.running",
+      "inversedBy": "products"
+    },
+    "stock": {
+      "type": "integer"
+    },
+    "titleOne": {
+      "type": "string"
+    },
+    "SizeSix": {
+      "type": "string"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::review.review",
+      "mappedBy": "products"
+    }
+  }
+}

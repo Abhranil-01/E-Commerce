@@ -1,0 +1,53 @@
+nav{
+    
+  height: 80px;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+
+    .search-container{
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        width: 35vw;
+        height: 7vh;
+        border-radius: 20px;
+        input[type=search]{
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            outline: none;
+            border: none;
+            padding:0 20px;
+            font-weight: bold;
+         
+       
+        }
+        
+      
+    }
+    .nav-icons{
+        display: flex;
+        .dropdown-menu{
+            left: 20%;
+        }
+        .cart-page{
+            cursor: pointer;
+        }
+    }
+}
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+$layout-breakpoint-small: 720px;
+
+@media (max-width: $layout-breakpoint-small) {
+ nav {
+    h2{
+        font-size: 20px;
+    }
+ }
+}

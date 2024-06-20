@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_lists",
+  "info": {
+    "singularName": "order-list",
+    "pluralName": "order-lists",
+    "displayName": "orderList",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "size": {
+      "type": "string"
+    },
+    "qty": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "float"
+    },
+    "cancel": {
+      "type": "boolean"
+    },
+    "user_addresses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::user-address.user-address",
+      "mappedBy": "order_lists"
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "order_lists"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::review.review",
+      "mappedBy": "order_lists"
+    },
+    "productId": {
+      "type": "integer"
+    }
+  }
+}

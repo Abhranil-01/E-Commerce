@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "runnings",
+  "info": {
+    "singularName": "running",
+    "pluralName": "runnings",
+    "displayName": "running",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "runnings"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "runnings"
+    },
+    "navigation": {
+      "type": "string"
+    }
+  }
+}

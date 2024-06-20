@@ -1,0 +1,14 @@
+.outer-star::before{
+   content: "\2605\2605\2605\2605\2605";
+}
+.inner-star::before{
+    content: "\2605\2605\2605\2605\2605";
+}
+.outer-star{
+    display: inline-block;
+    color: rgb(189, 189, 191);
+}
+.inner-star{
+    overflow: hidden;
+    color: #FFC107;
+}

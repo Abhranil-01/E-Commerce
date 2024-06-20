@@ -1,0 +1,14 @@
+$layout-breakpoint-small: 360px;
+
+@media (max-width: $layout-breakpoint-small) {
+    .auto-slider{
+            margin-top: 50px;
+            h1{
+                font-size: 18px;
+            }
+            p{
+                font-size: 12px;
+            }
+    }   
+}
+

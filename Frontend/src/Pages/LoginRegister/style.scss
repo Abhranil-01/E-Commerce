@@ -1,0 +1,39 @@
+.login-box{
+    right: 0%;
+    background-color: white;
+}
+.register-box{
+    right: -100%;
+    background-color: white;
+}
+.login-box.active{
+    right: -100%;
+}
+.register-box.active{
+    right: 0%;
+}
+.logo{
+    background: -webkit-linear-gradient( rgb(9, 153, 236), rgb(245, 4, 233));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+display: none;
+    span{
+        display: none;
+    }
+  h1{
+    display: none;
+    
+  }
+}
+@media only screen and (max-width: 768px) {
+    .logo{
+        display: block;
+        span{
+            display: block;
+        }
+        h1{
+            display: block;
+        }
+    }
+   
+}

@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "crickets": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cricket.cricket",
+      "mappedBy": "categories"
+    },
+    "runnings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::running.running",
+      "mappedBy": "categories"
+    },
+    "badmintons": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::badminton.badminton",
+      "mappedBy": "categories"
+    },
+    "footballs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::football.football",
+      "mappedBy": "categories"
+    }
+  }
+}

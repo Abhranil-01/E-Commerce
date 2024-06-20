@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reviews",
+  "info": {
+    "singularName": "review",
+    "pluralName": "reviews",
+    "displayName": "review",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "rating": {
+      "type": "float"
+    },
+    "review": {
+      "type": "text"
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "reviews"
+    },
+    "order_lists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::order-list.order-list",
+      "inversedBy": "reviews"
+    },
+    "productId": {
+      "type": "integer"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "inversedBy": "reviews"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "footballs",
+  "info": {
+    "singularName": "football",
+    "pluralName": "footballs",
+    "displayName": "football",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "footballs"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "footballs"
+    },
+    "navigation": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crickets",
+  "info": {
+    "singularName": "cricket",
+    "pluralName": "crickets",
+    "displayName": "cricket",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "crickets"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "crickets"
+    },
+    "navigation": {
+      "type": "string"
+    }
+  }
+}

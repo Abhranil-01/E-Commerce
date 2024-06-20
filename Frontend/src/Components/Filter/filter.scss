@@ -1,0 +1,88 @@
+.filter-background {
+    // width: 100%;
+    // height: 100vh;
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    background: rgba(36, 35, 35, 0.301);
+    .filter-box {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        right: 0;
+        // width: 70vh;
+        // height: 100%;
+        background: white;
+    
+        .heading {
+            width: 100%;
+       
+            border-bottom: 2px solid rgb(231, 231, 231);
+            span {
+                cursor: pointer;
+            }
+        }
+        .scroll{
+            height: 90%;
+            overflow-y: scroll;
+          }
+        .applied {
+            padding: 8px 18px 0px;
+            border-bottom: 2px solid rgb(231, 231, 231);
+            .applied-filter {
+                margin-top: 30px;
+                padding-bottom: 30px;
+                .applied-box {
+                    height: 5vh;
+                    background: rgb(235, 235, 235);
+                    padding: 0 14px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-size: 15px;
+                }
+            }
+        }
+        .box-dropdown {
+            border-bottom: 2px solid rgb(231, 231, 231);
+            cursor: pointer;
+        }
+        .chart-box {
+            height: 5vh;
+            background: rgb(219, 218, 218);
+            padding: 0 18px;
+            cursor: pointer;
+            font-weight: bold;
+          
+        }
+        .price {
+            height: 10vh;
+            .slider {
+                height: 3px;
+                width: 100%;
+                background-color: #2e2d2d;
+                border-radius: 5px;
+            }
+
+            .slider .thumb {
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                border: 3px solid black;
+                background: white;
+                cursor: grab;
+                top: -8px;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            }
+
+            .slider .thumb.active {
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            }
+            .input-box {
+                font-size: 15px;
+            }
+        }
+    }
+}
+.scroll::-webkit-scrollbar{
+    display: none;
+}
