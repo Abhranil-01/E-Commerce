@@ -67,7 +67,7 @@ refetch()
         <div className="row">
           <div className="col-md-3 col-11  d-flex justify-content-center align-items-center ">
             <img
-              src={`${import.meta.env.VITE_IMAGE_URL}${data.data.attributes.image.data[0].attributes.url}`}
+              src={`${data.data.attributes.image.data[0].attributes.url}`}
               className="img-fluid"
               alt="cart image"
             />

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 function CatagoryCard({id,title,image}) {
   const navigate=useNavigate()
   const nav=title.toLowerCase()
+  console.log(image);
    const handleClick=()=>{
    navigate(`/items/${nav}/${id}`)
    }
@@ -12,7 +13,7 @@ function CatagoryCard({id,title,image}) {
   <div className="col">
         <div class="card  rounded-0  " style={{ cursor: "pointer" }}>
           <img
-            src={`${import.meta.env.VITE_IMAGE_URL}${image}`}
+            src={image}
             class="card-img-top rounded-0 position-relative "
             alt="..."
           />

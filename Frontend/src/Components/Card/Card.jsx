@@ -16,7 +16,7 @@ const dispatch=useDispatch()
       <div className="col">
         <div class="card  rounded-0  " style={{ cursor: "pointer" }}>
           <img
-            src={`${import.meta.env.VITE_IMAGE_URL}${img}`}
+            src={`${img}`}
             class="card-img-top rounded-0 position-relative "
             alt="..."
           />

@@ -86,7 +86,7 @@ function ShopCard({ values }) {
       <div class="card shop-card rounded-0 p-0 " onClick={handleClick}>
         <div className="position-relative ">
           <img
-            src={`${import.meta.env.VITE_IMAGE_URL}${values.attributes.image.data[0].attributes.url}`}
+            src={`${values.attributes.image.data[0].attributes.url}`}
             class="card-img-top rounded-0  "
             alt="..."
           />
