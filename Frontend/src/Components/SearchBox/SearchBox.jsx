@@ -9,9 +9,11 @@ function SearchBox({ input }) {
   const { data } = useGetCategoriesQuery({
     params: `populate[footballs][populate][0]=image&populate[footballs][filters][title][$startsWith]=${input}&populate[crickets][populate][0]=image&populate[crickets][filters][title][$startsWith]=${input}&populate[badmintons][populate][0]=image&populate[badmintons][filters][title][$startsWith]=${input}&populate[runnings][populate][0]=image&populate[runnings][filters][title][$startsWith]=${input}`,
   });
+  console.log(data);
   const navigate = useNavigate();
 const dispatch = useDispatch()
   const handleNavigateToStore = (element, item) => {
+    
     if (element && element.attributes && item && item.attributes) {
       const id = element.id;
       const navOne = item.attributes.title.toLowerCase();
