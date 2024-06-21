@@ -29,7 +29,7 @@ function OrderCard({element,id}) {
         >
           <div class="row g-0">
             <div class="col-4 col-md-2 ">
-              <img src={`http://localhost:1337${data.data.attributes.image.data[0].attributes.url}`} class="img-fluid rounded-start" alt="..." />
+              <img src={`${import.meta.env.VITE_IMAGE_URL}${data.data.attributes.image.data[0].attributes.url}`} class="img-fluid rounded-start" alt="..." />
             </div>
             <div class="col-8 col-md-10">
               <div class="card-body position-relative  ">

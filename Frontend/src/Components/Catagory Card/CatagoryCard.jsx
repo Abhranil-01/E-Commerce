@@ -12,7 +12,7 @@ function CatagoryCard({id,title,image}) {
   <div className="col">
         <div class="card  rounded-0  " style={{ cursor: "pointer" }}>
           <img
-            src={`http://localhost:1337${image}`}
+            src={`${import.meta.env.VITE_IMAGE_URL}${image}`}
             class="card-img-top rounded-0 position-relative "
             alt="..."
           />
