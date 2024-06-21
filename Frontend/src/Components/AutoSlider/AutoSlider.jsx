@@ -11,10 +11,10 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 function AutoSlider() {
   const [imgs,setImgs]=useState([
-    '/src/Images/Untitled design.png',
-    '/src/Images/cricketTwo.png',
-    '/src/Images/badminton.png',
-    '/src/Images/running.png',
+    '/public/Images/Untitled design.png',
+    '/public/Images/cricketTwo.png',
+    '/public/Images/badminton.png',
+    '/public/Images/running.png',
   ])
   return (
     <>

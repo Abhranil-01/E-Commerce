@@ -23,28 +23,28 @@ const dataSlice = createSlice({
         case "football":
           return {
             ...state,
-            img: "/src/Images/Untitled design.png",
+            img: "/public/Images/Untitled design.png",
             headTitle: "Football Items",
             navOne: "footballs",
           };
         case "cricket":
           return {
             ...state,
-            img: "/src/Images/cricketTwo.png",
+            img: "/public/Images/cricketTwo.png",
             headTitle: "Cricket Items",
             navOne: "crickets",
           };
         case "badminton":
           return {
             ...state,
-            img: "/src/Images/badminton.png",
+            img: "/public/Images/badminton.png",
             headTitle: "Badminton Items",
             navOne: "badmintons",
           };
         case "running":
           return {
             ...state,
-            img: "/src/Images/running.png",
+            img: "/public/Images/running.png",
             headTitle: "Running Items",
             navOne: "runnings",
           };
@@ -57,109 +57,109 @@ const dataSlice = createSlice({
         case "footballs-":
           return {
             ...state,
-            img: "/src/Images/football/Ballsjpg.avif",
+            img: "/public/Images/football/Ballsjpg.avif",
             navOne: "footballs",
           };
         case "football-jerseys":
           return {
             ...state,
-            img: "/src/Images/football/jersey.avif",
+            img: "/public/Images/football/jersey.avif",
             navOne: "footballs",
           };
         case "football-shorts":
           return {
             ...state,
-            img: "/src/Images/football/KIPSTA FOOT 11 PE20  3.avif",
+            img: "/public/Images/football/KIPSTA FOOT 11 PE20  3.avif",
             navOne: "footballs",
           };
         case "football-socks&shinguards":
           return {
             ...state,
-            img: "/src/Images/football/socks.avif",
+            img: "/public/Images/football/socks.avif",
             navOne: "footballs",
           };
         case "football-shoes":
           return {
             ...state,
-            img: "/src/Images/football/Shoes.avif",
+            img: "/public/Images/football/Shoes.avif",
             navOne: "footballs",
           };
         case "goalkeeping-gloves":
           return {
             ...state,
-            img: "/src/Images/football/goal.avif",
+            img: "/public/Images/football/goal.avif",
             navOne: "footballs",
           };
         case "football-trainingaccessories":
           return {
             ...state,
-            img: "/src/Images/football/Ballsjpg.avif",
+            img: "/public/Images/football/Ballsjpg.avif",
             navOne: "footballs",
           };
         case "cricket-balls":
           return {
             ...state,
-            img: "/src/Images/cricket/main banners galaxy to galaxy category banner desktop.avif",
+            img: "/public/Images/cricket/main banners galaxy to galaxy category banner desktop.avif",
             navOne: "crickets",
           };
         case "cricket-bats":
           return {
             ...state,
-            img: "/src/Images/cricket/main banners galaxy to galaxy category banner desktop.avif",
+            img: "/public/Images/cricket/main banners galaxy to galaxy category banner desktop.avif",
             navOne: "crickets",
           };
         case "cricket-jerseys":
           return {
             ...state,
-            img: "/src/Images/cricket/Cricket FLX 1 6  cricket whites catbanner.avif",
+            img: "/public/Images/cricket/Cricket FLX 1 6  cricket whites catbanner.avif",
             navOne: "crickets",
           };
         case "cricket-trackpants":
           return {
             ...state,
-            img: "/src/Images/cricket/Cricket FLX 11  cricket trackpants catbanner.avif",
+            img: "/public/Images/cricket/Cricket FLX 11  cricket trackpants catbanner.avif",
             navOne: "crickets",
           };
         case "running-clothing":
           return {
             ...state,
-            img: "/src/Images/running/jogging shoes banner page 0001 min.avif",
+            img: "/public/Images/running/jogging shoes banner page 0001 min.avif",
             navOne: "runnings",
           };
         case "running-shoes":
           return {
             ...state,
-            img: "/src/Images/running/jogging shoes banner page 0001 min.avif",
+            img: "/public/Images/running/jogging shoes banner page 0001 min.avif",
             navOne: "runnings",
           };
         case "badminton-clothing":
           return {
             ...state,
-            img: "/src/Images/Badminton/badminton apparels banner 01.avif",
+            img: "/public/Images/Badminton/badminton apparels banner 01.avif",
             navOne: "badmintons",
           };
         case "badminton-kitbags":
           return {
             ...state,
-            img: "/src/Images/Badminton/PERFLY BR 590   Noir Vert   000     Expires on 09 12 2028 01.avif",
+            img: "/public/Images/Badminton/PERFLY BR 590   Noir Vert   000     Expires on 09 12 2028 01.avif",
             navOne: "badmintons",
           };
         case "racquets":
           return {
             ...state,
-            img: "/src/Images/Badminton/PERFLY BR 590   Noir Vert   000     Expires on 09 12 2028 01.avif",
+            img: "/public/Images/Badminton/PERFLY BR 590   Noir Vert   000     Expires on 09 12 2028 01.avif",
             navOne: "badmintons",
           };
         case "shuttlecock":
           return {
             ...state,
-            img: "/src/Images/Badminton/PERFLY BR 590   Noir Vert   000     Expires on 09 12 2028 01.avif",
+            img: "/public/Images/Badminton/PERFLY BR 590   Noir Vert   000     Expires on 09 12 2028 01.avif",
             navOne: "badmintons",
           };
         case "badminton-shoes":
           return {
             ...state,
-            img: "/src/Images/Badminton/Badminton shoe 01.avif",
+            img: "/public/Images/Badminton/Badminton shoe 01.avif",
             navOne: "badmintons",
           };
 
