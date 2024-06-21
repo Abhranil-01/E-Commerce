@@ -11,12 +11,13 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 function AutoSlider() {
   const [imgs,setImgs]=useState([
-    'https://dsport.vercel.app/Untitled design.png',
+    'https://dsport.vercel.app/Images/Untitled design.png',
     '/public/Images/cricketTwo.png',
     '/public/Images/badminton.png',
     '/public/Images/running.png',
   ])
   console.log(imgs);
+  
   return (
     <>
       <div className="row auto-slider" >
