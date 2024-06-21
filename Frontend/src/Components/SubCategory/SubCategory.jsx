@@ -14,12 +14,12 @@ function SubCategory() {
   const headTitle = useSelector((state) => state.data.headTitle);
   const nav = useSelector((state) => state.data.navOne);
   const { data, isError, isLoading } = useGetCustomDataQuery(nav);
-  console.log(name);
-  useEffect(() => {
-    if (data) {
-      console.log(data);
-    }
-  }, [data]);
+  // console.log(name);
+  // useEffect(() => {
+  //   if (data) {
+  //     console.log(data);
+  //   }
+  // }, [data]);
   return (
     <>
       <div className="card rounded-0 border-0 " style={{marginTop:"50px"}}>

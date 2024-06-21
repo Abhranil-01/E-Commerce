@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {useDispatch} from 'react-redux'
 import { setId, setTitle } from "../../services/Data/DataSlice";
 function Card({ title, img, id ,navName,name,categoryId}) {
-  console.log('jiji',title);
+  // console.log('jiji',title);
  const navigate=useNavigate()
 const dispatch=useDispatch()
   const handleClick=()=>{

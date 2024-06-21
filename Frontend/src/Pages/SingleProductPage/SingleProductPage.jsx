@@ -36,7 +36,7 @@ function ProductImageSlider() {
   const dispatch = useDispatch();
 
   // Image slider effect
-  console.log(data);
+  // console.log(data);
   const navigate = useNavigate();
   useEffect(() => {
     if (data && data.data.attributes) {
@@ -129,7 +129,7 @@ function ProductImageSlider() {
           const existingCartItem = userData.add_to_carts.find(
             (item) => item.productId === parseInt(id) && item.size === size
           );
-          console.log("jj", existingCartItem);
+          // console.log("jj", existingCartItem);
           if (existingCartItem) {
             const updatedQty = existingCartItem.qty + 1;
             const res = await UpdateCart({
@@ -140,7 +140,7 @@ function ProductImageSlider() {
             if (res.data) {
               userfetch();
               toast.success("Product added to cart");
-              console.log("res", res.data);
+              // console.log("res", res.data);
             }
 
             // console.log("wedf", res);
@@ -156,7 +156,7 @@ function ProductImageSlider() {
             };
             const res = await addToCart({ token: token, data: addData });
             if (res.data) {
-              console.log("uhuh", res);
+              // console.log("uhuh", res);
 
               userfetch();
               toast.success("Product added to cart");
@@ -192,7 +192,7 @@ function ProductImageSlider() {
                         >
                           <img
                             className="img-fluid border border-dark  "
-                            src={`http://localhost:1337${element.attributes.url}`}
+                            src={`${element.attributes.url}`}
                             onClick={() => handleClick(i)}
                           />
                         </div>
@@ -203,7 +203,7 @@ function ProductImageSlider() {
                 <div className="col-md-9 col-10  p-md-0 ">
                   {wordData && (
                     <img
-                      src={`http://localhost:1337${wordData.attributes.url}`}
+                      src={`${wordData.attributes.url}`}
                       className="img-fluid  border border-dark "
                     />
                   )}

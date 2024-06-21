@@ -15,21 +15,21 @@ export const UserauthSlice = createSlice({
   initialState,
   reducers: {
     setUserToken: (state, action) => {
-      console.log(action);
+    
       state.access_token = action.payload
     },
     unSetUserToken: (state, action) => {
-      console.log(action);
+     
       state.access_token = action.payload
     },
     setUserInfo: (state, action) => {
-      console.log(action);
+ 
         state.name = action.payload.name
         state.email = action.payload.email
         state.phone = action.payload.phone
       },
       unsetUserInfo: (state, action) => {
-        console.log(action);
+  
         state.name = action.payload.name
         state.email = action.payload.email
         state.phone = action.payload.phone

@@ -18,7 +18,7 @@ function Footer() {
   const { data, isError, isLoading } = useGetCategoriesQuery({
     params: "?populate=*",
   });
-  console.log(data);
+  // console.log(data);
   return (
     <>
       {/* <!-- footer --> */}

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function CatagoryCard({id,title,image}) {
   const navigate=useNavigate()
   const nav=title.toLowerCase()
-  console.log(image);
+ 
    const handleClick=()=>{
    navigate(`/items/${nav}/${id}`)
    }

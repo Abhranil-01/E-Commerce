@@ -4,7 +4,7 @@ import RatingProgressBar from "../RatingProgressBar/RatingProgressBar";
 import "./style.scss";
 import { getToken } from "../../services/LocalStorage/LocalStorage";
 function ProductPageReview({ reviews, totalRating, avg, ratings }) {
-  console.log('jhugo[tggfuv',reviews);
+  // console.log('jhugo[tggfuv',reviews);
 
   return (
     <>
