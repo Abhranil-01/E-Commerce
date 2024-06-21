@@ -184,7 +184,7 @@ function Review({ close, productId, orderId }) {
                       {singleProduct.data.attributes.image?.data?.[0]
                         ?.attributes && (
                         <img
-                          src={`http://localhost:1337${singleProduct.data.attributes.image.data[0].attributes.url}`}
+                          src={`${singleProduct.data.attributes.image.data[0].attributes.url}`}
                           alt=""
                           className="img-thumbnail"
                         />

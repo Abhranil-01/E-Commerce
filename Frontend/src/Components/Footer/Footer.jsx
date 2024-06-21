@@ -26,7 +26,7 @@ function Footer() {
         <div className="container text-center text-md-left">
           <div className="row text-center text-md-left">
             <div className="col-md-3 col-lg-3 col-xl-4 mx-auto mt-3">
-            <img src="\public\Images\Logo\Logo.png" alt="" className="img-fluid  " style={{filter:'invert(200%)'}} />
+            <img src="\Images\Logo\Logo.png" alt="" className="img-fluid  " style={{filter:'invert(200%)'}} />
               <p className="text-white text-wrap ">
                 Dsport is a dynamic sports e-commerce store, offering a wide
                 range of sports gear and apparel. With a focus on quality

@@ -248,7 +248,7 @@ const dispatch=useDispatch()
         ) : (
           <NoItems
             name={"No Items In The Cart"}
-            img={"/src/Images/cart icon/cart-empty.a0a3f3f6aa4cd1e5.svg"}
+            img={"/Images/cart icon/cart-empty.a0a3f3f6aa4cd1e5.svg"}
           />
         )
       ) : (

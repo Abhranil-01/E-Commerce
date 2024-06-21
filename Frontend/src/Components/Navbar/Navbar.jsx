@@ -73,7 +73,7 @@ const smallSearchInput=useSelector((state)=>state.filter.smallSearchInput)
         <nav className="row  align-items-center ">
           <div className="col-4 col-md-2">
            
-            <img src="\src\Images\Logo\Logo.png" alt="" className="img-fluid" />
+            <img src="\Images\Logo\Logo.png" alt="" className="img-fluid" />
           </div>
 
           {/* search input start */}

@@ -22,7 +22,7 @@ function LoginRegister() {
         <div className="col-md-6 p-0 position-absolute  ">
           <div class="card text-bg-dark rounded-0 border-0 vh-100 ">
             <img
-              src="\src\Images\poster.png"
+              src="\Images\poster.png"
               className="card-img-top rounded-0 position-relative h-100  "
               alt="..."
             />

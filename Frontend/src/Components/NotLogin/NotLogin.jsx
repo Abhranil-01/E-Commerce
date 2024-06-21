@@ -7,7 +7,7 @@ function NotLogin({title}) {
       <div className="col-md-5 col-12 p-0">
         <div class="card border-0 text-center">
           <img
-            src="\src\Images\cart icon\computer-security-with-login-password-padlock.jpg"
+            src="\Images\cart icon\computer-security-with-login-password-padlock.jpg"
             class="card-img-top"
             alt="..."
           />
