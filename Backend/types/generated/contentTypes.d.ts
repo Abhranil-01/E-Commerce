@@ -723,7 +723,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    phone: Attribute.Integer;
+    phone: Attribute.BigInteger;
     name: Attribute.String;
     add_to_carts: Attribute.Relation<
       'plugin::users-permissions.user',
@@ -1259,12 +1259,12 @@ export interface ApiUserAddressUserAddress extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    phone: Attribute.Integer;
+    phone: Attribute.BigInteger;
     pincode: Attribute.String;
     address: Attribute.Text;
     city: Attribute.String;
     state: Attribute.String;
-    phoneTwo: Attribute.Integer;
+    phoneTwo: Attribute.BigInteger;
     order_lists: Attribute.Relation<
       'api::user-address.user-address',
       'manyToMany',

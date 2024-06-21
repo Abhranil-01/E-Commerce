@@ -16,7 +16,7 @@
       "type": "string"
     },
     "phone": {
-      "type": "integer"
+      "type": "biginteger"
     },
     "pincode": {
       "type": "string"
@@ -31,7 +31,7 @@
       "type": "string"
     },
     "phoneTwo": {
-      "type": "integer"
+      "type": "biginteger"
     },
     "order_lists": {
       "type": "relation",
