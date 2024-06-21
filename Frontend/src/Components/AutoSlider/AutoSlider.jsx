@@ -11,7 +11,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 function AutoSlider() {
   const [imgs,setImgs]=useState([
-    '/public/Images/Untitled design.png',
+    'https://dsport.vercel.app/Untitled design.png',
     '/public/Images/cricketTwo.png',
     '/public/Images/badminton.png',
     '/public/Images/running.png',
