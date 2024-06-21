@@ -16,6 +16,7 @@ function AutoSlider() {
     '/public/Images/badminton.png',
     '/public/Images/running.png',
   ])
+  console.log(imgs);
   return (
     <>
       <div className="row auto-slider" >
