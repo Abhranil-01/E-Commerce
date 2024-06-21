@@ -7,7 +7,7 @@ function LogoBar() {
   return (
     <nav class="navbar bg-body-tertiary fixed-top">
       <div class="container-fluid ">
-      <img src="\public\Images\Logo\Logo.png" alt="" className="img-fluid" />
+      <img src="\Images\Logo\Logo.png" alt="" className="img-fluid" />
         <li class="list-group-item hoverClass">
           <NavLink to="/orders" className="text-dark text-decoration-none  ">
             <span>

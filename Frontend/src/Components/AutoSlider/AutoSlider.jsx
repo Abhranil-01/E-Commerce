@@ -12,9 +12,9 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 function AutoSlider() {
   const [imgs,setImgs]=useState([
     'https://dsport.vercel.app/Images/Untitled design.png',
-    '/public/Images/cricketTwo.png',
-    '/public/Images/badminton.png',
-    '/public/Images/running.png',
+    '/Images/cricketTwo.png',
+    '/Images/badminton.png',
+    '/Images/running.png',
   ])
   console.log(imgs);
   
