@@ -23,7 +23,7 @@ function SubCategory() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoader(false);
-    }, 500); // Loader will be displayed for 1000ms
+    }, 1000); // Loader will be displayed for 1000ms
 
     return () => clearTimeout(timer); // Cleanup the timer on component unmount
   }, []);

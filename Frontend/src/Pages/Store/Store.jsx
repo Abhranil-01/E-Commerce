@@ -71,9 +71,7 @@ function Store() {
         </h5>
       </div>
       {isOpen && data && <Filter close={() => setIsOpen(false)} />}
-      {isError ? (
-        <NoItems name="Sorry, an error occurred" img="/src/Images/cart icon/20602777_6325257.jpg" />
-      )  : data && data.data && data.data.attributes && data.data.attributes.products && data.data.attributes.products.data.length !== 0 ? (
+      { data && data.data && data.data.attributes && data.data.attributes.products && data.data.attributes.products.data.length !== 0 ? (
         <>
           <div className="container mt-5 filter-button">
             <div className="row d-flex justify-content-end">
