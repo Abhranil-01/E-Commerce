@@ -10,8 +10,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { useGetStoreDataQuery } from "../../services/FetchData/fetchData";
 import { setFilteredItems, setPrice, setSearchInput } from "../../services/FilterSlice/filterSlice";
 import NoItems from "../../Components/NoItems/NoItems";
+import Loader from "../../Components/Loader/Loader";
 
 function Store() {
+  const [loader, setLoader] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const { nameOne, nametwo, id, filter } = useParams();
   const dispatch = useDispatch();
@@ -41,10 +43,19 @@ function Store() {
   const handleOpen = () => {
     setIsOpen(true);
   };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoader(false);
+    }, 1000); // Loader will be displayed for 1000ms
 
+    return () => clearTimeout(timer); // Cleanup the timer on component unmount
+  }, []);
   return (
     <>
-      <div className="card rounded-0 border-0 image-bar" style={{ marginTop: "80px" }}>
+    {
+      loader ? (<Loader/>):(
+        <>
+        <div className="card rounded-0 border-0 image-bar" style={{ marginTop: "80px" }}>
         <img src={img} className="card-img-top rounded-0 position-relative " alt="..." />
         <div className="d-flex align-items-center ps-md-5 ps-3 position-absolute text-white w-100 h-100" style={{ backgroundColor: "rgba(0, 0, 0, 0.220)" }}>
           <h2 className="fw-bold fst-italic text-capitalize ">{nametwo.replace("-", " ")}</h2>
@@ -62,9 +73,7 @@ function Store() {
       {isOpen && data && <Filter close={() => setIsOpen(false)} />}
       {isError ? (
         <NoItems name="Sorry, an error occurred" img="/src/Images/cart icon/20602777_6325257.jpg" />
-      ) : isLoading ? (
-        <p>Loading...</p>
-      ) : data && data.data && data.data.attributes && data.data.attributes.products && data.data.attributes.products.data.length !== 0 ? (
+      )  : data && data.data && data.data.attributes && data.data.attributes.products && data.data.attributes.products.data.length !== 0 ? (
         <>
           <div className="container mt-5 filter-button">
             <div className="row d-flex justify-content-end">
@@ -87,6 +96,9 @@ function Store() {
       ) : (
         <NoItems name="Sorry, No Products Available" img="/Images/cart icon/9264885.jpg" />
       )}
+      </>)
+    }
+     
     </>
   );
 }

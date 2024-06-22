@@ -77,7 +77,7 @@ function OrderDetails({ close, id }) {
                       <div className="row g-0">
                         <div className="col-md-4 col-6 m-auto">
                           <img
-                            src={`http://localhost:1337${singleProduct.data.attributes.image.data[0].attributes.url}`}
+                            src={`${singleProduct.data.attributes.image.data[0].attributes.url}`}
                             alt={singleProduct.data.attributes.titleOne}
                             className="img-fluid rounded-start"
                           />

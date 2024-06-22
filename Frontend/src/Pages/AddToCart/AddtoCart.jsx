@@ -197,7 +197,7 @@ const dispatch=useDispatch()
                       <h3 className="border-bottom">Cart Items</h3>
                       </div>
                     
-                      <div className="row gap-3 px-md-2 p-0">
+                      <div className="row gap-3 ">
                       {userData &&
                         userData.add_to_carts.map((element) => (
                           <CartCard

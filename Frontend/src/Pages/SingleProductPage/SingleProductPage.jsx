@@ -15,8 +15,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import ProductPageReview from "../../Components/ProductPageReview/ProductPageReview";
+import Loader from "../../Components/Loader/Loader";
 
 function SingleProductPage() {
+  const [loader, setLoader] = useState(true); // Initial state should be true to show the loader initially
+
   const { id } = useParams();
   const { data, isError, isLoading, refetch } =
     useGetSingleProductDataQuery(id);
@@ -119,6 +122,7 @@ function SingleProductPage() {
     setVal(index);
   };
 
+
   const handleSubmit = async () => {
     if (token) {
       try {
@@ -173,9 +177,16 @@ function SingleProductPage() {
       toast.error("Please Login To Add The Data");
     }
   };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoader(false);
+    }, 1000); // Loader will be displayed for 1000ms
 
+    return () => clearTimeout(timer); // Cleanup the timer on component unmount
+  }, []);
   return (
-    <>
+    <>{
+    loader ? (<Loader/>):(<>
       {data ? (
         <div className=" container-fluid  " style={{ marginTop: "130px" }}>
           <div className="row align-items-center justify-content-center    ">
@@ -305,6 +316,9 @@ function SingleProductPage() {
       ) : (
         <p>No Data Is Available</p>
       )}
+      </>)
+    }
+     
 
       <ToastContainer
         position="top-center"

@@ -59,16 +59,16 @@ refetch()
     data &&
     data.data && (
       <div className="col-12">
-        <div className="card border-0 shadow position-relative">
+        <div className="card  shadow position-relative  ">
           <div className="row">
-            <div className="col-md-3 col-11 d-flex justify-content-center align-items-center">
+            <div className="col-md-4   col-12 d-flex align-items-center  ">
               <img
                 src={`${data.data.attributes.image.data[0].attributes.url}`}
-                className="img-fluid"
+                className="img-thumbnail border-0 "
                 alt="cart image"
               />
             </div>
-            <div className="col-md-9 col-11 p-0 px-4 mt-2">
+            <div className="col-md-8 col-11 p-0 px-4 mt-2">
               <div className="row">
                 <div className="col-12 p-0 ps-3 card-title">
                   <p className="mb-2 fs-5 fw-bold">
@@ -116,7 +116,7 @@ refetch()
                     <div
                       className="spinner-border position-absolute bg-white text-primary"
                       role="status"
-                      style={{ zIndex: "99999", left: "37%", top: "10%" }}
+                      style={{ zIndex: "99999", left: "36%", top: "10%" }}
                     >
                       <span className="visually-hidden">Loading...</span>
                     </div>

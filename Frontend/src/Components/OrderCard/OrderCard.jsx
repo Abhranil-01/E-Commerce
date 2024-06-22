@@ -28,10 +28,10 @@ function OrderCard({element,id}) {
            }}
         >
           <div class="row g-0">
-            <div class="col-4 col-md-2 ">
-              <img src={`${data.data.attributes.image.data[0].attributes.url}`} class="img-fluid rounded-start" alt="..." />
+            <div class="col-5 col-md-2 ">
+              <img src={`${data.data.attributes.image.data[0].attributes.url}`} class="img-fluid  h-100" alt="..." />
             </div>
-            <div class="col-8 col-md-10">
+            <div class="col-7 col-md-10">
               <div class="card-body position-relative  ">
                 <h5 class="card-title">{data.data.attributes.title}</h5>
                 <p class="card-text">
