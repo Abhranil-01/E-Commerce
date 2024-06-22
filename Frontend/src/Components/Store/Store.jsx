@@ -85,7 +85,7 @@ function Store() {
           </div>
         </>
       ) : (
-        <NoItems name="Sorry, No Products Available" img="/src/Images/cart icon/9264885.jpg" />
+        <NoItems name="Sorry, No Products Available" img="/Images/cart icon/9264885.jpg" />
       )}
     </>
   );

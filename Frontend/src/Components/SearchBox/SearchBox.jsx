@@ -5,9 +5,9 @@ import { useDispatch } from "react-redux";
 import { setIsOpen, setSearchInput, setSmallSearchInput } from "../../services/FilterSlice/filterSlice";
 
 function SearchBox({ input }) {
-  console.log(input);
+  const searchInput=input.toUpperCase()
   const { data } = useGetCategoriesQuery({
-    params: `populate[footballs][populate][0]=image&populate[footballs][filters][title][$startsWith]=${input}&populate[crickets][populate][0]=image&populate[crickets][filters][title][$startsWith]=${input}&populate[badmintons][populate][0]=image&populate[badmintons][filters][title][$startsWith]=${input}&populate[runnings][populate][0]=image&populate[runnings][filters][title][$startsWith]=${input}`,
+    params: `populate[footballs][filters][title][$contains]=${searchInput}&populate[crickets][filters][title][$contains]=${searchInput}&populate[badmintons][filters][title][$contains]=${searchInput}&populate[runnings][filters][title][$contains]=${searchInput}`,
   });
   // console.log(data);
   const navigate = useNavigate();
