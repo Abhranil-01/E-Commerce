@@ -7,10 +7,11 @@ import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { setAlert, setLogout } from '../../services/UserauthSlice/UserauthSlice'
 import AutoSlider from '../../Components/AutoSlider/AutoSlider'
+import Loader from '../../Components/Loader/Loader'
 function Home() {
   const dispatch=useDispatch()
   const { data, isError, isLoading } = useGetCategoriesQuery({params:"?populate=*"})
-
+const [loader,setLoader]=useState(false)
 const loginAlert=useSelector((state)=>state.userInfo.loginAlert)
 const logOutAlert=useSelector((state)=>state.userInfo.logOutAlert)
 useEffect(()=>{
@@ -32,7 +33,7 @@ useEffect(()=>{
 
   return (
     <>
-
+{/* <Loader/> */}
       <div className="container-fluid " style={{margin:"70px 0px"}}>
       <AutoSlider/> 
       <div className="row my-5">

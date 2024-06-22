@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { customAction } from "../../services/Data/DataSlice";
 import { NavLink, useParams } from "react-router-dom";
 import { useGetCustomDataQuery } from "../../services/FetchData/fetchData";
-import Card from "../Card/Card";
+import Card from "../../Components/Card/Card";
+
 function SubCategory() {
   const { name, id } = useParams();
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function SubCategory() {
   // }, [data]);
   return (
     <>
+    
       <div className="card rounded-0 border-0 " style={{marginTop:"50px"}}>
         <img
           src={img}

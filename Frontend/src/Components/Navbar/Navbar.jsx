@@ -82,7 +82,7 @@ const smallSearchInput=useSelector((state)=>state.filter.smallSearchInput)
               <div className="d-none d-md-block position-relative  col-10 ">
                 <input
                   type="search"
-                  className="form-control py-2"
+                  className="form-control py-2 bg-transparent"
                   placeholder="Search Products"
                   value={searchValue}
                   onChange={handleSearch}
@@ -189,7 +189,7 @@ const smallSearchInput=useSelector((state)=>state.filter.smallSearchInput)
             <div className="position-relative" style={{ width: "70%" }}>
               <input
                 type="search"
-                className="form-control"
+                className="form-control bg-transparent"
                 placeholder="Search Product"
                 value={searchValue}
                 onChange={handleSearch}

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import ShopCard from "../ShopCard/ShopCard";
+import ShopCard from "../../Components/ShopCard/ShopCard";
 import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
-import Filter from "../Filter/Filter";
+import Filter from "../../Components/Filter/Filter";
 import { NavLink, useParams } from "react-router-dom";
 import { customStoreAction } from "../../services/Data/DataSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useGetStoreDataQuery } from "../../services/FetchData/fetchData";
 import { setFilteredItems, setPrice, setSearchInput } from "../../services/FilterSlice/filterSlice";
-import NoItems from "../NoItems/NoItems";
+import NoItems from "../../Components/NoItems/NoItems";
 
 function Store() {
   const [isOpen, setIsOpen] = useState(false);

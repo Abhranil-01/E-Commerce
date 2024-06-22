@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import ProductPageReview from "../../Components/ProductPageReview/ProductPageReview";
 
-function ProductImageSlider() {
+function SingleProductPage() {
   const { id } = useParams();
   const { data, isError, isLoading, refetch } =
     useGetSingleProductDataQuery(id);
@@ -323,4 +323,4 @@ function ProductImageSlider() {
   );
 }
 
-export default ProductImageSlider;
+export default SingleProductPage;

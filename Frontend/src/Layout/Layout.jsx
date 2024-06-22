@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Navbar from '../Components/Navbar/Navbar'
 import Footer from '../Components/Footer/Footer'
 import { Outlet } from 'react-router-dom'
@@ -11,7 +11,10 @@ function Layout() {
     <ShowHide>
     <Navbar/>
     </ShowHide>
-      <Outlet/>
+    <Suspense fallback='Loading...'>
+    <Outlet/>
+    </Suspense>
+     
       <ShowHide>
       <Footer/>
       </ShowHide>
