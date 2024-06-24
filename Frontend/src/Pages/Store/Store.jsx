@@ -11,6 +11,7 @@ import { useGetStoreDataQuery } from "../../services/FetchData/fetchData";
 import { setFilteredItems, setPrice, setSearchInput } from "../../services/FilterSlice/filterSlice";
 import NoItems from "../../Components/NoItems/NoItems";
 import Loader from "../../Components/Loader/Loader";
+import SkeletonLoader from "./SkeletonLoader";
 
 function Store() {
   const [loader, setLoader] = useState(true);
@@ -40,22 +41,53 @@ function Store() {
     }
   }, [data, dispatch]);
 
-  const handleOpen = () => {
-    setIsOpen(true);
-  };
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoader(false);
-    }, 1000); // Loader will be displayed for 1000ms
+    }, 500); // Loader will be displayed for 1000ms
 
     return () => clearTimeout(timer); // Cleanup the timer on component unmount
   }, []);
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const renderContent = () => {
+    if (isLoading || loader) {
+      return <SkeletonLoader/>;
+    }
+
+    if (isError || !data || !data.data || !data.data.attributes || !data.data.attributes.products || data.data.attributes.products.data.length === 0) {
+      return <NoItems name="Sorry, No Products Available" img="/Images/cart icon/9264885.jpg" />;
+    }
+
+    return (
+      <>
+        <div className="container mt-5 filter-button">
+          <div className="row d-flex justify-content-end">
+            <div className="col-4 col-md-2 p-0 border border-dark d-flex align-items-center justify-content-center me-3 gap-1" onClick={handleOpen} style={{ height: "3rem", cursor: "pointer" }}>
+              <span>
+                <FontAwesomeIcon icon={faFilter} />
+              </span>
+              <span>Filter</span>
+            </div>
+          </div>
+        </div>
+        <div className="container my-3">
+          <div className="my-4 row row-cols-2 row-cols-lg-4 row-cols-md-2">
+            {data.data.attributes.products.data.map((element) => (
+              <ShopCard key={element.id} values={element} />
+            ))}
+          </div>
+        </div>
+      </>
+    );
+  };
+
   return (
     <>
-    {
-      loader ? (<Loader/>):(
-        <>
-        <div className="card rounded-0 border-0 image-bar" style={{ marginTop: "80px" }}>
+      <div className="card rounded-0 border-0 image-bar" style={{ marginTop: "80px" }}>
         <img src={img} className="card-img-top rounded-0 position-relative " alt="..." />
         <div className="d-flex align-items-center ps-md-5 ps-3 position-absolute text-white w-100 h-100" style={{ backgroundColor: "rgba(0, 0, 0, 0.220)" }}>
           <h2 className="fw-bold fst-italic text-capitalize ">{nametwo.replace("-", " ")}</h2>
@@ -71,32 +103,7 @@ function Store() {
         </h5>
       </div>
       {isOpen && data && <Filter close={() => setIsOpen(false)} />}
-      { data && data.data && data.data.attributes && data.data.attributes.products && data.data.attributes.products.data.length !== 0 ? (
-        <>
-          <div className="container mt-5 filter-button">
-            <div className="row d-flex justify-content-end">
-              <div className="col-4 col-md-2 p-0 border border-dark d-flex align-items-center justify-content-center me-3 gap-1" onClick={handleOpen} style={{ height: "3rem", cursor: "pointer" }}>
-                <span>
-                  <FontAwesomeIcon icon={faFilter} />
-                </span>
-                <span>Filter</span>
-              </div>
-            </div>
-          </div>
-          <div className="container my-3">
-            <div className="my-4 row row-cols-2 row-cols-lg-4 row-cols-md-2">
-              {data.data.attributes.products.data.map((element) => (
-                <ShopCard key={element.id} values={element} />
-              ))}
-            </div>
-          </div>
-        </>
-      ) : (
-        <NoItems name="Sorry, No Products Available" img="/Images/cart icon/9264885.jpg" />
-      )}
-      </>)
-    }
-     
+      {renderContent()}
     </>
   );
 }

@@ -31,3 +31,29 @@ $layout-breakpoint-small: 360px;
         font-size:15px;
     }
 }
+.skeleton-shopcard{
+ 
+    height: 380px;
+    width: 270px;
+    .image-part{
+        height: 80%;
+       
+    }
+
+    @media (max-width:1200px){
+        height: 320px;
+        width: 225px;
+    }
+    @media (max-width:991px){
+        height: 400px;
+        width: 350px;
+    }
+    @media (max-width:768px){
+        height: 350px;
+        width: 280px;
+    }
+}
+
+.filter{
+    height: 50px;
+}

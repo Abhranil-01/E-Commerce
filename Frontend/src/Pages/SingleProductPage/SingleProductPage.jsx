@@ -16,6 +16,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import ProductPageReview from "../../Components/ProductPageReview/ProductPageReview";
 import Loader from "../../Components/Loader/Loader";
+import SkeletonLoader from "./SkeletonLoader";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function SingleProductPage() {
   const [loader, setLoader] = useState(true); // Initial state should be true to show the loader initially
@@ -186,7 +189,7 @@ function SingleProductPage() {
   }, []);
   return (
     <>{
-    loader ? (<Loader/>):(<>
+    isLoading ? (<SkeletonLoader/>):(<>
       {data ? (
         <div className=" container-fluid  " style={{ marginTop: "130px" }}>
           <div className="row align-items-center justify-content-center    ">
@@ -221,7 +224,7 @@ function SingleProductPage() {
                 </div>
               </div>
             </div>
-            <div className=" col-xl-6 col-lg-6 d-flex flex-column justify-content-center gap-3 px-3  ">
+            <div className=" col-xl-6 col-lg-6 d-flex flex-column justify-content-center gap-3 px-3 mt-5 mt-md-3 ">
               <div>
                 <p className="fw-bolder">{data.data.attributes.title}</p>
                 <h4>{data.data.attributes.titleOne}</h4>

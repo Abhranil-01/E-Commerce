@@ -52,6 +52,10 @@ const dataSlice = createSlice({
           return state;
       }
     },
+    resetData(state) {
+      // Reset state to initial values
+      return initialState;
+    },
     customStoreAction: (state, action) => {
       switch (action.payload.key) {
         case "footballs-":
@@ -105,7 +109,7 @@ const dataSlice = createSlice({
         case "cricket-bats":
           return {
             ...state,
-            img: "Images/cricket/main banners galaxy to galaxy category banner desktop.avif",
+            img: "/Images/cricket/main banners galaxy to galaxy category banner desktop.avif",
             navOne: "crickets",
           };
         case "cricket-jerseys":
@@ -170,7 +174,7 @@ const dataSlice = createSlice({
   },
 });
 
-export const { customAction, customStoreAction, setTitle, setId } =
+export const { customAction, customStoreAction, setTitle, setId,resetData } =
   dataSlice.actions;
 
 export default dataSlice.reducer;

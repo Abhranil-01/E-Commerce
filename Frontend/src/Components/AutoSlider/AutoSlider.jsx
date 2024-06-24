@@ -44,7 +44,7 @@ function AutoSlider() {
               />
               <div className="position-absolute w-100 h-100 top-0 d-flex flex-column justify-content-center  text-white ps-md-5 ps-2  " style={{ backgroundColor: "rgba(0, 0, 0, 0.220)" }}>
                 <h1>Welcome To Dsport</h1> 
-                <p className="fst-italic">Gear up for greatness with D-Sport, where passion meets performance!</p>
+                <p className="fst-italic">Gear up for greatness with Dsport, where passion meets performance!</p>
               </div>
             </SwiperSlide>
             ))

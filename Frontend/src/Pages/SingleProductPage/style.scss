@@ -114,4 +114,39 @@ overflow: hidden;
     }
     }
   }
-
+.bigImageskeleton{
+  height: 450px;
+  @include xl{
+    height: 350px;
+  }
+  @include lg{
+    height: 300px;
+  }
+  @include md{
+    height: 380px;
+  }
+  @include sm{
+    height: 250px;
+  }
+  @include xs{
+    height: 200px;
+  }
+}
+.sideImage{
+  height: 80px;
+  @include xl{
+    height: 60px;
+  }
+  @include lg{
+    height: 45px;
+  }
+  @include md{
+    height: 65px;
+  }
+  @include sm{
+    height: 35px;
+  }
+  @include xs{
+    height: 30px;
+  }
+}
