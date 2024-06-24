@@ -6,6 +6,7 @@ const initialState = {
   navOne: "",
   title: "",
   id: null,
+  loader:false,
 };
 
 const dataSlice = createSlice({
@@ -17,6 +18,9 @@ const dataSlice = createSlice({
     },
     setId: (state, action) => {
       state.id = action.payload;
+    },
+    setLoader:(state,action)=>{
+      state.loader = action.payload;
     },
     customAction: (state, action) => {
       switch (action.payload.key) {
@@ -174,7 +178,7 @@ const dataSlice = createSlice({
   },
 });
 
-export const { customAction, customStoreAction, setTitle, setId,resetData } =
+export const { customAction, customStoreAction, setTitle, setId,resetData,setLoader } =
   dataSlice.actions;
 
 export default dataSlice.reducer;

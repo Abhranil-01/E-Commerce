@@ -3,27 +3,40 @@ import { useGetCategoriesQuery } from "../../services/FetchData/fetchData";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setIsOpen, setSearchInput, setSmallSearchInput } from "../../services/FilterSlice/filterSlice";
+import { setLoader } from "../../services/Data/DataSlice";
 
 function SearchBox({ input }) {
-  const searchInput=input.toUpperCase()
+  const searchInput = input.toUpperCase();
   const { data } = useGetCategoriesQuery({
     params: `populate[footballs][filters][title][$contains]=${searchInput}&populate[crickets][filters][title][$contains]=${searchInput}&populate[badmintons][filters][title][$contains]=${searchInput}&populate[runnings][filters][title][$contains]=${searchInput}`,
   });
-  // console.log(data);
-  const navigate = useNavigate();
-const dispatch = useDispatch()
-  const handleNavigateToStore = (element, item) => {
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  console.log(data);
+
+  const handleNavigateToStore = (element, item) => {
     if (element && element.attributes && item && item.attributes) {
       const id = element.id;
       const navOne = item.attributes.title.toLowerCase();
       const navTwo = element.attributes.navigation;
-      dispatch(setIsOpen(false))
-      dispatch(setSearchInput(""))
-      dispatch(setSmallSearchInput(false))
+      dispatch(setIsOpen(false));
+      dispatch(setSearchInput(""));
+      dispatch(setSmallSearchInput(false));
+      dispatch(setLoader(true)); // Set loading state to true
       navigate(`/${navOne}/${navTwo}/${id}/populate[products][populate][0]=image`);
     }
   };
+
+  // Check if all data items are empty
+  const allDataEmpty =
+    data &&
+    data.data &&
+    data.data.every((item) =>
+      Object.keys(item.attributes).every(
+        (key) => !item.attributes[key].data || item.attributes[key].data.length === 0
+      )
+    );
 
   return (
     <>
@@ -37,7 +50,10 @@ const dispatch = useDispatch()
         }}
       >
         <ul className="list-group w-100 rounded-0">
-          {data &&
+          {allDataEmpty ? (
+            <li className="list-group-item border-0 border-bottom">Item Not Found</li>
+          ) : (
+            data &&
             data.data &&
             data.data.map((item, index) => (
               <div key={index}>
@@ -55,9 +71,11 @@ const dispatch = useDispatch()
                       </li>
                     ));
                   }
+                  return null;
                 })}
               </div>
-            ))}
+            ))
+          )}
         </ul>
       </div>
     </>

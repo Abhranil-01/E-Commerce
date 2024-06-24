@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import Filter from "../../Components/Filter/Filter";
 import { NavLink, useParams } from "react-router-dom";
-import { customStoreAction } from "../../services/Data/DataSlice";
+import { customStoreAction, setLoader } from "../../services/Data/DataSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useGetStoreDataQuery } from "../../services/FetchData/fetchData";
 import { setFilteredItems, setPrice, setSearchInput } from "../../services/FilterSlice/filterSlice";
@@ -14,7 +14,6 @@ import Loader from "../../Components/Loader/Loader";
 import SkeletonLoader from "./SkeletonLoader";
 
 function Store() {
-  const [loader, setLoader] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const { nameOne, nametwo, id, filter } = useParams();
   const dispatch = useDispatch();
@@ -26,6 +25,7 @@ function Store() {
   const img = useSelector((state) => state.data.img);
   const nav = useSelector((state) => state.data.navOne);
   const subCategoryId = useSelector((state) => state.data.id);
+  const loader = useSelector((state) => state.data.loader); // Get the loader state
 
   const { data, isError, isLoading, refetch } = useGetStoreDataQuery({
     name: nav,
@@ -39,15 +39,8 @@ function Store() {
       dispatch(setPrice([Math.min(...priceArray), Math.max(...priceArray)]));
       refetch();
     }
+    dispatch(setLoader(false)); // Set loader state to false once data is fetched
   }, [data, dispatch]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoader(false);
-    }, 500); // Loader will be displayed for 1000ms
-
-    return () => clearTimeout(timer); // Cleanup the timer on component unmount
-  }, []);
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -55,7 +48,7 @@ function Store() {
 
   const renderContent = () => {
     if (isLoading || loader) {
-      return <SkeletonLoader/>;
+      return <SkeletonLoader />;
     }
 
     if (isError || !data || !data.data || !data.data.attributes || !data.data.attributes.products || data.data.attributes.products.data.length === 0) {
