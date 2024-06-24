@@ -189,7 +189,7 @@ function SingleProductPage() {
   }, []);
   return (
     <>{
-    isLoading ? (<SkeletonLoader/>):(<>
+    isLoading || loader ? (<SkeletonLoader/>):(<>
       {data ? (
         <div className=" container-fluid  " style={{ marginTop: "130px" }}>
           <div className="row align-items-center justify-content-center    ">
