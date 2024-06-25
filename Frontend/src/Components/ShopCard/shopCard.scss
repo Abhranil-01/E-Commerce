@@ -1,8 +1,18 @@
-.shop-card{
-    cursor: pointer;
-img{
+.shop-card {
+  cursor: pointer;
+  img {
     height: 300px;
-}
-
+    @media (max-width: 1200px) {
+      height: 220px;
     }
- 
+    @media (max-width: 992px) {
+      height: 320px;
+    }
+    @media (max-width: 768px) {
+      height: 250px;
+    }
+    @media (max-width: 480px) {
+      height: 180px;
+    }
+  }
+}
