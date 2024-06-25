@@ -84,11 +84,13 @@ function ShopCard({ values }) {
   return (
     <div className="col p-0 p-md-2   ">
       <div class="card shop-card rounded-0 p-0 " onClick={handleClick}>
-        <div className="position-relative ">
+        <div className="position-relative "          >
           <img
             src={`${values.attributes.image.data[0].attributes.url}`}
-            class="card-img-top rounded-0  "
+            class="card-img-top rounded-0   "
             alt="..."
+           
+   
           />
           {reviewsLength !== 0 && (
             <p
