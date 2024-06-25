@@ -148,7 +148,7 @@ function AddressForm({ close, id, buttonName }) {
       <div className="row ">
         <div className="col-12 col-md-6 h-100  position-fixed  end-0 bg-white  ">
           <div className=" row">
-            <div className="col-12 px-4 py-3 d-flex justify-content-between align-items-center border-bottom  ">
+            <div className="col-12 px-4 py-2 py-md-3 d-flex justify-content-between align-items-center border-bottom  ">
               <h4>Add Your Address</h4>
               <span
                 className="fs-3"
@@ -158,7 +158,7 @@ function AddressForm({ close, id, buttonName }) {
                 <FontAwesomeIcon icon={faXmark} />
               </span>
             </div>
-            <div className="col-12 mt-5  ">
+            <div className="col-12 mt-2 mt-md-5  ">
               <div className="row  ">
                 <form onSubmit={handleSubmit(addInfo)}>
                   <div className="col-12  ">

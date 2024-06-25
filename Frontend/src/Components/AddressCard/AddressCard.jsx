@@ -1,26 +1,30 @@
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddressForm from "../AddressForm/AddressForm";
-import { useDispatch } from "react-redux"; // Import useDispatch if using Redux
+import { useDispatch } from "react-redux";
 import { setIdAction } from "../../services/UpdateSlice/UpdateSlice";
-import "./AddressCard.scss"
-import {Bounce, ToastContainer, toast} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
-function AddressCard({ element }) {
-  const dispatch = useDispatch(); // Define dispatch if using Redux
-  const [select,setSelected] = useState(null); // Define dispatch
-  const [addClass, setAddClass] = useState("");
+import "./AddressCard.scss";
+
+function AddressCard({ element, selectedAddressId, onSelectAddress }) {
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [buttonName, setButtonName] = useState("");
   const [id, setId] = useState("");
-  
 
-  const addAddress=()=>{
-    dispatch(setIdAction(element.id)) 
-    toast.success("Address Add Successfully")
+  const addAddress = () => {
+    onSelectAddress(element.id);
+    dispatch(setIdAction(element.id));
+  };
+  
+useEffect(()=>{
+
+  if(element.id === 4){
+    console.log(selectedAddressId,"lksdfjf")
+     
   }
   
+},[selectedAddressId,element])
   return (
     <>
       {isOpen && (
@@ -31,12 +35,20 @@ function AddressCard({ element }) {
         />
       )}
       <div key={element.id} className="col-12 mt-3">
-     
         <div
-          className={`card card-hover position-relative`}
+          className={`card position-relative ${element.id === selectedAddressId ? 'card-hover' : ''}`}
           style={{ cursor: "pointer" }}
+          onClick={addAddress}
         >
-          <div className="card-body"  onClick={addAddress}>
+          <input
+            type="radio"
+            name="address"
+            checked={selectedAddressId === element.id}
+            onChange={addAddress}
+            className="position-absolute"
+            style={{top:"45%",left:"2%"}}
+          />
+          <div className="card-body px-5">
             <p className="card-title">{element.name}</p>
             <p className="card-text">
               <span>{element.address}</span>,
@@ -49,7 +61,8 @@ function AddressCard({ element }) {
           <span
             className="position-absolute z-3"
             style={{ right: "2%", top: "35%" }}
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               setId(element.id);
               setIsOpen(true);
               setButtonName("Save Address");
@@ -59,20 +72,6 @@ function AddressCard({ element }) {
           </span>
         </div>
       </div>
-      <ToastContainer
-position="top-right"
-autoClose={3000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="dark"
-transition={Bounce}
-containerId={"containerB"}
-/>
     </>
   );
 }
