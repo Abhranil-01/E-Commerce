@@ -1,4 +1,15 @@
-.sub-card{
+.subcategory-card{
+    h4{
+        @media (max-width:1200px){
+        font-size: 18px;
+    
+        }
+        @media (max-width:991px){
+            font-size: 15px;
+    
+        }
+    }
+  img{
     height: 320px;
     @media (max-width:1200px){
         height: 250px;
@@ -20,17 +31,5 @@
         height: 180px;
 
     }
-}
-
-h4{
-  
-    @media (max-width:991px){
-       font-size: 12px;
-    }
-    @media (max-width:768px){
-        
-    }
-    @media (max-width:480px){
-        
-    }
+  }
 }

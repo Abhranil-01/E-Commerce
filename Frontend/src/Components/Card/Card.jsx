@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import {useDispatch} from 'react-redux'
 import { setId, setTitle } from "../../services/Data/DataSlice";
+import './style.scss'
 function Card({ title, img, id ,navName,name,categoryId}) {
   // console.log('jiji',title);
  const navigate=useNavigate()
@@ -14,7 +15,7 @@ const dispatch=useDispatch()
   return (
     <>
       <div className="col">
-        <div class="card  rounded-0  " style={{ cursor: "pointer" }}>
+        <div class="card subcategory-card  rounded-0  " style={{ cursor: "pointer" }}>
           <img
             src={`${img}`}
             class="card-img-top rounded-0 position-relative "
