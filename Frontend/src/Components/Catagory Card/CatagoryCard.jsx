@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import './style.scss'
 function CatagoryCard({id,title,image}) {
   const navigate=useNavigate()
   const nav=title.toLowerCase()
@@ -11,7 +11,7 @@ function CatagoryCard({id,title,image}) {
   return (
     <>
   <div className="col">
-        <div class="card  rounded-0  " style={{ cursor: "pointer" }}>
+        <div class="card  rounded-0 home-card  " style={{ cursor: "pointer" }}>
           <img
             src={image}
             class="card-img-top rounded-0 position-relative "
