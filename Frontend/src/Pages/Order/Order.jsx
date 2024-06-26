@@ -41,7 +41,7 @@ useEffect(()=>{
        
         </div>
       </div>
-      ) :(<NoItems img={'/src/Images/cart icon/9264885.jpg'}
+      ) :(<NoItems img={'/Images/cart icon/9264885.jpg'}
       name={"No Orders Yet"}/>) 
     ) :(<NotLogin title={"YOUR ORDERS"}/>) 
     }

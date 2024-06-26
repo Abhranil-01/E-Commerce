@@ -10,6 +10,7 @@ import { getToken } from "../../services/LocalStorage/LocalStorage";
 import { useDispatch } from "react-redux";
 import { setRefresh } from "../../services/UpdateSlice/UpdateSlice";
 import Review from "../../Components/Review/Review";
+import SkeletonLoader from "./SkeletonLoader";
 
 function OrderDetails({ close, id }) {
   const [productId, setProductId] = useState("");
@@ -53,11 +54,11 @@ function OrderDetails({ close, id }) {
       )}
 
       <div
-        className="container-fluid w-100 h-100 position-fixed top-0 start-0 z-3"
+        className="container-fluid w-100 h-100 position-fixed top-0 start-0 z-3 "
         style={{ background: "rgba(36, 35, 35, 0.301)" }}
       >
-        <div className="row">
-          <div className="col-12 col-md-5 h-100 position-fixed end-0 bg-white">
+        <div className="row ">
+          <div className="col-12 col-md-5 h-100 position-fixed end-0 bg-white ">
             <div className="row">
               <div className="col-12 px-4 py-3 d-flex justify-content-between align-items-center border-bottom">
                 <h4>Order Details</h4>
@@ -168,7 +169,7 @@ function OrderDetails({ close, id }) {
                   )}
                 </>
               ) : (
-                <p>Loading...</p>
+                <SkeletonLoader/>
               )}
             </div>
           </div>

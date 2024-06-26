@@ -139,7 +139,7 @@ const dispatch=useDispatch()
       {token ? (
         userData &&
         userData.add_to_carts &&
-        userData.add_to_carts.length !== 0 ? (
+        userData.add_to_carts.length > 0 ? (
           <div className="container-fluid mb-5 " style={{marginTop:"80px"}}>
             <div className="row">
               <div className="col-md-10 col-11 mx-auto">

@@ -155,7 +155,7 @@ function Review({ close, productId, orderId }) {
   return (
     <>
       <div
-        className="border border-danger container-fluid position-fixed top-0 start-0 vh-100 w-100"
+        className="border border-danger container-fluid position-fixed top-0 start-0 vh-100 w-100 "
         style={{ background: "rgba(36, 35, 35, 0.301)", zIndex: 999 }}
       >
         <div className="row">
