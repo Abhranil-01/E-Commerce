@@ -58,7 +58,7 @@ function OrderDetails({ close, id }) {
         style={{ background: "rgba(36, 35, 35, 0.301)" }}
       >
         <div className="row ">
-          <div className="col-12 col-md-5 h-100 position-fixed end-0 bg-white ">
+          <div className="col-12 col-md-5 vh-100 position-fixed end-0 bg-white bottom-0 ">
             <div className="row">
               <div className="col-12 px-4 py-3 d-flex justify-content-between align-items-center border-bottom">
                 <h4>Order Details</h4>
