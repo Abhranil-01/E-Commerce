@@ -56,7 +56,7 @@ refetch()
     data &&
     data.data && (
       <div className="col-12   ">
-        <div className="card  shadow position-relative cart-card  ">
+        <div className="card  shadow position-relative  ">
           <div className="row">
             <div className="col-md-3   col-12 d-flex align-items-center  ">
               <img
