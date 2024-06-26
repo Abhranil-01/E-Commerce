@@ -24,6 +24,7 @@ import { setShowAlert } from "../../services/UserauthSlice/UserauthSlice";
 
 import SkeletonLoader from "./SkeletonLoader";
 import { toast } from "react-toastify";
+import LazyLoad from "react-lazy-load";
 function AddtoCart() {
   const navigate = useNavigate()
   const token = getToken(); // Get token from local storage
@@ -173,11 +174,14 @@ const dispatch=useDispatch()
                           </div>
                         ) : (
                           <div className=" d-flex flex-column align-items-center  ">
+                            <LazyLoad>
                             <img
                               src="\Images\cart icon\3133337_37296.jpg"
                               className="col-2 "
                               alt=""
                             />
+                            </LazyLoad>
+                          
                             <button
                               className="btn border-black fw-bold my-3 "
                               onClick={() => {
@@ -201,11 +205,14 @@ const dispatch=useDispatch()
                       <div className="row gap-3 ">
                       {userData &&
                         userData.add_to_carts.map((element) => (
-                          <CartCard
+                          <LazyLoad>
+                               <CartCard
                             key={element.id}
                             value={element}
                             refetch={userRefetch}
                           />
+                          </LazyLoad>
+                       
                         ))}
                       </div>
                       
