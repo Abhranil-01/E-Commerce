@@ -1,0 +1,6 @@
+.order-card-skeleton{
+    height: 25vh;
+    @media (max-width:768){
+        height: 15vh;
+    }
+}
