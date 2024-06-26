@@ -11,25 +11,25 @@
     }
   img{
 
-    height: 320px;
+    height: 46vh;
     @media (max-width:1200px){
-        height: 250px;
+        height:30vh;
 
     }
     @media (max-width:991px){
-        height: 180px;
+        height: 20vh;
 
     }
     @media (max-width:767px){
-        height: 250px;
+        height: 28vh;
 
     }
     @media (max-width:480px){
-        height: 200px;
+        height: 22vh;
 
     }
     @media (max-width:380px){
-        height: 180px;
+        height: 18vh;
 
     }
   }
