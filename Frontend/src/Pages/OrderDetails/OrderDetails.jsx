@@ -142,7 +142,7 @@ function OrderDetails({ close, id }) {
                       )}
                   </div>
                   {!orderData.data.attributes.cancel ? (
-                    <div className="col-12" style={{ marginTop: "80px" }}>
+                    <div className="col-12" style={{ marginTop: "50px" }}>
                       <div className="row">
                         <div className="col-6">
                           <button
