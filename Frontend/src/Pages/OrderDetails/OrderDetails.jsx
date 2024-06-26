@@ -54,7 +54,7 @@ function OrderDetails({ close, id }) {
       )}
 
       <div
-        className="container-fluid w-100 h-100 position-fixed top-0 start-0 z-3 "
+        className="container-fluid w-100 vh-100 position-fixed top-0 start-0 z-3 "
         style={{ background: "rgba(36, 35, 35, 0.301)" }}
       >
         <div className="row ">
