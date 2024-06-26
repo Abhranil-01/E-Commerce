@@ -21,8 +21,9 @@ import ChangeAddress from "../../Components/ChangeAddress/ChangeAddress";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setShowAlert } from "../../services/UserauthSlice/UserauthSlice";
-import Skeleton from "react-loading-skeleton";
+
 import SkeletonLoader from "./SkeletonLoader";
+import { toast } from "react-toastify";
 function AddtoCart() {
   const navigate = useNavigate()
   const token = getToken(); // Get token from local storage
@@ -85,9 +86,9 @@ const dispatch=useDispatch()
   // Function to handle placing orders
   const handleOrder = async () => {
     try {
-      console.log("QHWFUGWFIYGEW");
+ 
       if (userData && userData.add_to_carts && existAddress) {
-        console.log("QHWFUGWFIYGEW");
+
         const orderPromises = await userData.add_to_carts.map((element) => (
           PostOrderData({
             data: {
@@ -118,12 +119,10 @@ const dispatch=useDispatch()
           dispatch(setShowAlert(true))
           navigate("/orders")
         }
-        else{
-          console.log("Error:", res);
-        } 
+   
       }
     } catch (error) {
-      console.error("Error while placing orders:", error);
+    toast.error('Order Not Placed')
     }
   };
 
@@ -175,7 +174,7 @@ const dispatch=useDispatch()
                         ) : (
                           <div className=" d-flex flex-column align-items-center  ">
                             <img
-                              src="\src\Images\cart icon\3133337_37296.jpg"
+                              src="\Images\cart icon\3133337_37296.jpg"
                               className="col-2 "
                               alt=""
                             />

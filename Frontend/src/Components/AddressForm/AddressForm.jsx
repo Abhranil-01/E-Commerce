@@ -142,11 +142,11 @@ function AddressForm({ close, id, buttonName }) {
   return (
     <>
       <div
-      className="container-fluid w-100 h-100  position-fixed top-0 "
+      className="container-fluid w-100 vh-100  position-fixed top-0 "
       style={{ background: "rgba(36, 35, 35, 0.301)", zIndex: "99999" }}
     >
       <div className="row ">
-        <div className="col-12 col-md-6 h-100  position-fixed  end-0 bg-white  ">
+        <div className="col-12 col-md-6  vh-100 top-0 bottom-0  position-fixed  end-0 bg-white  ">
           <div className=" row">
             <div className="col-12 px-4 py-2 py-md-3 d-flex justify-content-between align-items-center border-bottom  ">
               <h4>Add Your Address</h4>

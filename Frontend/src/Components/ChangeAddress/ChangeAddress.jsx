@@ -36,11 +36,11 @@ function ChangeAddress({ close }) {
         />
       )}
       <div
-        className="container-fluid w-100 h-100 position-fixed top-0"
+        className="container-fluid w-100  vh-100 position-fixed top-0"
         style={{ background: "rgba(36, 35, 35, 0.301)", zIndex: "9999" }}
       >
         <div className="row">
-          <div className="col-12 col-md-6 h-100 position-fixed end-0 bg-white pb-5 address-box" style={{ overflowY: "scroll" }}>
+          <div className="col-12 col-md-6 vh-100 position-fixed end-0 bg-white pb-5 address-box top-0 bottom-0" style={{ overflowY: "scroll" }}>
             <div className="row position-relative">
               <div className="col-12 py-3 d-flex justify-content-between align-items-center border-bottom">
                 <h4>Change Address</h4>

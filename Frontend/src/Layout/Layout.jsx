@@ -11,7 +11,7 @@ function Layout() {
     <ShowHide>
     <Navbar/>
     </ShowHide>
-    <Suspense fallback='Loading...'>
+    <Suspense>
     <Outlet/>
     </Suspense>
      
