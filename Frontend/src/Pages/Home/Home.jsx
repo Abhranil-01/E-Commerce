@@ -29,14 +29,20 @@ useEffect(()=>{
 },[logOutAlert])
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <div className='container-fluid 'style={{margin:"70px 0px"}}>
+           <div className="row my-5">
+        <div className="col-12 text-center">
+          <h2>Explore Sports Items</h2>
+        </div>
+      </div>
+    </div>
   }
 
   return (
     <>
 {/* <Loader/> */}
       <div className="container-fluid " style={{margin:"70px 0px"}}>
-      <AutoSlider/> 
+
       <div className="row my-5">
         <div className="col-12 text-center">
           <h2>Explore Sports Items</h2>

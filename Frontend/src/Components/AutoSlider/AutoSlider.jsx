@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import "./style.scss"
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import LazyLoad from 'react-lazy-load'
 
 function AutoSlider() {
   const [imgs,setImgs]=useState([
@@ -20,7 +21,8 @@ function AutoSlider() {
   
   return (
     <>
-      <div className="row auto-slider" >
+    <div className="container-fluid mt-5">
+    <div className="row auto-slider "  >
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -36,22 +38,28 @@ function AutoSlider() {
         >
           {
             imgs.map((url,index)=>(
-              <SwiperSlide key={index} className="position-relative ">
+              <LazyLoad>
+                      <SwiperSlide key={index} className="position-relative ">
               <img
                 src={url}
                 alt=""
                 className="img-fluid"
+        
               />
               <div className="position-absolute w-100 h-100 top-0 d-flex flex-column justify-content-center  text-white ps-md-5 ps-2  " style={{ backgroundColor: "rgba(0, 0, 0, 0.220)" }}>
                 <h1>Welcome To Dsport</h1> 
                 <p className="fst-italic">Gear up for greatness with Dsport, where passion meets performance!</p>
               </div>
             </SwiperSlide>
+              </LazyLoad>
+        
             ))
           }
        
         </Swiper>
       </div>
+    </div>
+      
     </>
   );
 }

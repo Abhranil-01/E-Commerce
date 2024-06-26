@@ -6,14 +6,18 @@ function ShowHide({ children }) {
   const [showNavbar, setShowNavbar] = useState(true);
 
   useEffect(() => {
-    if (location.pathname ==='/login' || location.pathname === '/register' || location.pathname === '/addtocart' ||location.pathname === '/checkout' ) {
+    if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/addtocart' || location.pathname === '/checkout') {
       setShowNavbar(false);
     } else {
       setShowNavbar(true);
     }
   }, [location]);
 
-  return <div>{showNavbar && children}</div>;
+  return (
+    <div>
+      {showNavbar && children}
+    </div>
+  );
 }
 
 export default ShowHide;

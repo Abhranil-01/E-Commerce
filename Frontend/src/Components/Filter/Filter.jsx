@@ -85,8 +85,8 @@ function Filter({ close }) {
     const sizeFilters = selectedFilters.filter((item) => size.includes(item));
     const genderFilters = selectedFilters.filter((item) => gender.includes(item));
 
-    const sizeQuery = sizeFilters.map((size) => `&populate[products][filters][size][$eq]=${size}`).join("&");
-    const genderQuery = genderFilters.map((gender) => `&populate[products][filters][Gender][$eq]=${gender}`).join("&");
+    const sizeQuery = sizeFilters.length !== 0 ? sizeFilters.map((item) => `&populate[products][filters][size][$eq]=${item}`).join("&") : "";
+    const genderQuery = genderFilters.length !== 0 ? genderFilters.map((item) => `&populate[products][filters][Gender][$eq]=${item}`).join("&"):"";
     if (priceFilters && priceFilters.length !== 0) {
       priceQuery = `&populate[products][filters][price][$gte]=${priceFilters[0]}&populate[products][filters][price][$lte]=${priceFilters[1]}`;
     }
@@ -106,7 +106,6 @@ function Filter({ close }) {
               <FontAwesomeIcon icon={faXmark} />
             </span>
           </div>
-
           <div className="scroll">
             <div className="box-dropdown py-2 container">
               <div className="d-flex align-items-center justify-content-between fw-bold">
@@ -127,7 +126,6 @@ function Filter({ close }) {
                 </div>
               </div>
             </div>
-
             <div className="box-dropdown py-2">
               <div className="d-flex align-items-center justify-content-between fw-bold px-3">
                 <span>PRICE</span>
@@ -136,7 +134,6 @@ function Filter({ close }) {
                 <PriceRange max={maxPrice} min={minPrice} />
               </div>
             </div>
-
             <FilterList value={gender} name={"GENDER"} />
             <FilterList value={size} name={"SIZE"} />
           </div>
