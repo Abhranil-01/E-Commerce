@@ -6,7 +6,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 function SkeletonLoader() {
   return (
     <>
-      <div className="container-fluid mb-5 " style={{ marginTop: "80px" }}>
+      <div className="container-fluid mb-5  " style={{ marginTop: "80px" }}>
         <div className="row">
           <div className="col-md-10 col-11 mx-auto">
             <div className="row mt-5 gx-3">
@@ -36,7 +36,7 @@ function SkeletonLoader() {
                     <div className="col-12">
                       <div className="card  shadow position-relative  ">
                         <div className="row">
-                          <div className="col-md-4   col-12 pb-2">
+                          <div className="col-md-4   col-12 pb-2 cart-image-skeleton  ">
                           <Skeleton style={{height:"100%"}}/>
                            
                           </div>
