@@ -7,7 +7,8 @@ import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { setAlert, setLogout } from '../../services/UserauthSlice/UserauthSlice'
 import AutoSlider from '../../Components/AutoSlider/AutoSlider'
-import Loader from '../../Components/Loader/Loader'
+import LazyLoad from 'react-lazy-load'
+
 function Home() {
   const dispatch=useDispatch()
   const { data, isError, isLoading } = useGetCategoriesQuery({params:"?populate=*"})
@@ -43,7 +44,10 @@ useEffect(()=>{
       </div>
         <div className="row row-cols-1 row-cols-md-2 g-4 ">
           {data && data.data.map((element) => (
-            <CatagoryCard key={element.id} id={element.id} title={element.attributes.title} image={element.attributes.image.data.attributes.url}  />
+            <LazyLoad>
+               <CatagoryCard key={element.id} id={element.id} title={element.attributes.title} image={element.attributes.image.data.attributes.url}  />
+            </LazyLoad>
+           
           ))}
         </div>
       

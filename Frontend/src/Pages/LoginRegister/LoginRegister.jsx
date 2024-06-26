@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import "./style.scss";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
+import LazyLoad from 'react-lazy-load'
 function LoginRegister() {
   const [addClass, setAddClass] = useState("");
   const showRegister = () => {
@@ -21,11 +22,14 @@ function LoginRegister() {
       <div className="row">
         <div className="col-md-6 p-0 position-absolute  ">
           <div class="card text-bg-dark rounded-0 border-0 vh-100 ">
+            <LazyLoad>
             <img
               src="\Images\poster.png"
               className="card-img-top rounded-0 position-relative h-100  "
               alt="..."
             />
+            </LazyLoad>
+        
             <div
               class="card-img-overlay d-flex "
               style={{ backgroundColor: "rgba(0, 0, 0, 0.280)" }}
@@ -33,7 +37,7 @@ function LoginRegister() {
                 <span className="fs-4" style={{cursor:'pointer'}}><NavLink className='text-white' to='/'><FontAwesomeIcon icon={faHome}/></NavLink></span>
                 <div className="text-center  align-self-center w-100 ">
                 {/* <h1 class="card-title fw-bold align-self-center">D-Sport</h1> */}
-                <img src="\src\Images\Logo\Logo.png" alt="" className="img-fluid" style={{filter:'invert(100%)'}} />
+                <img src="\Images\Logo\Logo.png" alt="" className="img-fluid" style={{filter:'invert(100%)'}} />
 
                 </div>
             </div>
