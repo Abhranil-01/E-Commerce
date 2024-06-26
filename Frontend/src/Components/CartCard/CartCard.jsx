@@ -8,7 +8,7 @@ import {
 } from "../../services/FetchData/fetchData";
 import { getToken } from "../../services/LocalStorage/LocalStorage";
 import { useDispatch, useSelector } from "react-redux";
-
+import './style.scss'
 function CartCard({ value, refetch }) {
   const [loaderDisplay, setLoaderDisplay] = useState(false);
   // console.log(value);
@@ -51,24 +51,21 @@ refetch()
     refetch();
   };
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
 
   return (
     data &&
     data.data && (
-      <div className="col-12">
-        <div className="card  shadow position-relative  ">
+      <div className="col-12   ">
+        <div className="card  shadow position-relative cart-card  ">
           <div className="row">
-            <div className="col-md-4   col-12 d-flex align-items-center  ">
+            <div className="col-md-3   col-12 d-flex align-items-center  ">
               <img
                 src={`${data.data.attributes.image.data[0].attributes.url}`}
                 className="img-thumbnail border-0 "
                 alt="cart image"
               />
             </div>
-            <div className="col-md-8 col-11 p-0 px-4 mt-2">
+            <div className="col-md-8 col-12 p-0 px-4 mt-2">
               <div className="row">
                 <div className="col-12 p-0 ps-3 card-title">
                   <p className="mb-2 fs-5 fw-bold">

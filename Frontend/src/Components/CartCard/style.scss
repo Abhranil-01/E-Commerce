@@ -1,0 +1,16 @@
+.cart-card{
+    height: 40vh;
+    padding-bottom: 10px;
+    @media (max-width:767px){
+        height: 115vh;
+    }
+    @media (max-width:600px){
+        height: 110vh;
+    }
+    @media (max-width:480px){
+        height: 95vh;
+    }
+    @media (max-width:400px){
+        height: 80vh;
+    }
+}

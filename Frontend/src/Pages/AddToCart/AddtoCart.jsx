@@ -21,6 +21,8 @@ import ChangeAddress from "../../Components/ChangeAddress/ChangeAddress";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setShowAlert } from "../../services/UserauthSlice/UserauthSlice";
+import Skeleton from "react-loading-skeleton";
+import SkeletonLoader from "./SkeletonLoader";
 function AddtoCart() {
   const navigate = useNavigate()
   const token = getToken(); // Get token from local storage
@@ -30,7 +32,7 @@ function AddtoCart() {
 const dispatch=useDispatch()
   const [id, setId] = useState(""); // State to hold address id
 
-  const { data: userData, refetch: userRefetch } = useGetUserQuery(token); // Query to get user data
+  const { data: userData, refetch: userRefetch,isLoading } = useGetUserQuery(token); // Query to get user data
   const { data: customDataAddress } = useGetCustomAddressQuery({ // Query to get custom address data
     token: token,
     id: id,
@@ -136,10 +138,10 @@ const dispatch=useDispatch()
       {isOpenTwo && <ChangeAddress close={() => setIsOpenTwo(false)} />}
 
       {/* Render based on user authentication */}
-      {token ? (
+      {token ? (isLoading ? (<SkeletonLoader/>):(
         userData &&
         userData.add_to_carts &&
-        userData.add_to_carts.length > 0 ? (
+        userData.add_to_carts.length >0 ? (
           <div className="container-fluid mb-5 " style={{marginTop:"80px"}}>
             <div className="row">
               <div className="col-md-10 col-11 mx-auto">
@@ -192,7 +194,7 @@ const dispatch=useDispatch()
                     </div>
 
                     {/* Cart items */}
-                    <div className=" shadow mt-5 container-fluid p-md-2 p-0">
+                    <div className=" shadow mt-5 container p-md-2 p-0">
                       <div className="p-3" >
                       <h3 className="border-bottom">Cart Items</h3>
                       </div>
@@ -251,6 +253,8 @@ const dispatch=useDispatch()
             img={"/Images/cart icon/cart-empty.a0a3f3f6aa4cd1e5.svg"}
           />
         )
+      )
+        
       ) : (
         <NotLogin title={"CART ITEMS"} />
       )}
