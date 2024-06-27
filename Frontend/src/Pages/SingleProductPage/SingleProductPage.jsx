@@ -189,7 +189,7 @@ function SingleProductPage() {
                       <div className="row d-flex align-items-end justify-content-center gap-1">
                         {imgs &&
                           imgs.map((element, i) => (
-                            <LazyLoad>
+                         
                                                 <div
                               className="col-md-12 col-2 product-image-thumbnail p-0 border border-dark"
                               key={element.id}
@@ -204,7 +204,7 @@ function SingleProductPage() {
                                 />
                
                             </div>
-                            </LazyLoad>
+                        
           
                           ))}
                       </div>
