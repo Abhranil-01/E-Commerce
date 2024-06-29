@@ -6,6 +6,7 @@ function InputBoxTwo({
   type = 'text',
   register,
   value,
+  readOnly=false
 }) {
   return (
     <>
@@ -17,6 +18,7 @@ function InputBoxTwo({
           {...register}
           defaultValue={value}
           placeholder={label}
+          readOnly={readOnly}
         />
         <label htmlFor="floatingInput">{label}</label>
       </div>

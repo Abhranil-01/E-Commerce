@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { setIdAction } from "../../services/UpdateSlice/UpdateSlice";
 import "./AddressCard.scss";
 
-function AddressCard({ element, selectedAddressId, onSelectAddress }) {
+function AddressCard({ element, selectedAddressId, onSelectAddress ,closeButton}) {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [buttonName, setButtonName] = useState("");
@@ -15,6 +15,7 @@ function AddressCard({ element, selectedAddressId, onSelectAddress }) {
   const addAddress = () => {
     onSelectAddress(element.id);
     dispatch(setIdAction(element.id));
+    closeButton()
   };
   
 useEffect(()=>{

@@ -21,7 +21,7 @@ function AutoSlider() {
   
   return (
     <>
-    <div className="container-fluid mt-5">
+    <div className="container-fluid " style={{marginTop:'80px'}}>
     <div className="row auto-slider "  >
         <Swiper
           spaceBetween={30}

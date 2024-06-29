@@ -33,6 +33,7 @@ function ChangeAddress({ close }) {
         <AddressForm
           close={() => setIsOpen(false)}
           buttonName={buttonName}
+          closeButton={close}
         />
       )}
       <div
@@ -70,6 +71,7 @@ function ChangeAddress({ close }) {
                     element={element}
                     selectedAddressId={Number(selectedAddressId)}
                     onSelectAddress={handleSelectAddress}
+                    closeButton={close}
                   />
                 ))}
               </div>
