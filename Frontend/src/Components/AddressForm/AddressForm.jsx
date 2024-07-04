@@ -92,7 +92,7 @@ function AddressForm({ close, id, buttonName, closeButton }) {
           }
         }
       } catch (error) {
-        console.error('Error fetching data:', error);
+        toast.error("Pincode is not found")
       }
     };
 
@@ -115,7 +115,7 @@ function AddressForm({ close, id, buttonName, closeButton }) {
         close();
         closeButton();
       } else {
-        console.log(res.error);
+        toast.error("Address not added");
       }
     } else {
       if (data.phoneTwo.length === 0) {
@@ -131,7 +131,7 @@ function AddressForm({ close, id, buttonName, closeButton }) {
         close();
         closeButton();
       } else {
-        console.log(res.error);
+    toast.error("Address not updated ");
       }
     }
   };

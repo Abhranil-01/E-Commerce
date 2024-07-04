@@ -2,11 +2,8 @@ import React, { useEffect, useState } from "react";
 import CartCard from "../../Components/CartCard/CartCard";
 import {
   useDeleteCartDataMutation,
-  useGetAddressQuery,
-  useGetCartDataQuery,
   useGetCustomAddressQuery,
   useGetUserQuery,
-  usePostAddressMutation,
   usePostOrderDataMutation,
 } from "../../services/FetchData/fetchData";
 import { getToken } from "../../services/LocalStorage/LocalStorage";
@@ -25,17 +22,19 @@ import { setShowAlert } from "../../services/UserauthSlice/UserauthSlice";
 import SkeletonLoader from "./SkeletonLoader";
 import { toast } from "react-toastify";
 import LazyLoad from "react-lazy-load";
+
 function AddtoCart() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const token = getToken(); // Get token from local storage
   const [totalAmount, setTotalAmount] = useState(); // State to hold total amount
   const [buttonName, setButtonName] = useState(""); // State to hold button name
   const [existAddress, setExistAddress] = useState([]); // State to hold existing address
-const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const [id, setId] = useState(""); // State to hold address id
 
-  const { data: userData, refetch: userRefetch,isLoading } = useGetUserQuery(token); // Query to get user data
-  const { data: customDataAddress } = useGetCustomAddressQuery({ // Query to get custom address data
+  const { data: userData, refetch: userRefetch, isLoading } = useGetUserQuery(token); // Query to get user data
+  const { data: customDataAddress } = useGetCustomAddressQuery({
+    // Query to get custom address data
     token: token,
     id: id,
   });
@@ -87,9 +86,7 @@ const dispatch=useDispatch()
   // Function to handle placing orders
   const handleOrder = async () => {
     try {
- 
       if (userData && userData.add_to_carts && existAddress) {
-
         const orderPromises = await userData.add_to_carts.map((element) => (
           PostOrderData({
             data: {
@@ -108,23 +105,27 @@ const dispatch=useDispatch()
             token: token,
           })
         ));
-        console.log('orderprimise',orderPromises);
+        console.log('orderprimise', orderPromises);
         const res = await Promise.all(orderPromises);
-     
-        if(res) {
+
+        if (res) {
           console.log("Orders placed successfully:", res);
-          userData.add_to_carts.map((element)=>{
-            DeleteCartData({id: element.id,token:token})
-          })
+          userData.add_to_carts.map((element) => {
+            DeleteCartData({ id: element.id, token: token });
+          });
           userRefetch();
-          dispatch(setShowAlert(true))
-          navigate("/orders")
+          dispatch(setShowAlert(true));
+          navigate("/orders");
         }
-   
       }
     } catch (error) {
-    toast.error('Order Not Placed')
+      toast.error('Order Not Placed');
     }
+  };
+
+  const handleSelectAddress = (addressId) => {
+    localStorage.setItem("selectedAddressId", addressId);
+    setId(addressId);
   };
 
   return (
@@ -135,136 +136,124 @@ const dispatch=useDispatch()
         <AddressForm close={() => setIsOpen(false)} buttonName={buttonName} />
       )}
       {/* Change address modal */}
-      {isOpenTwo && <ChangeAddress close={() => setIsOpenTwo(false)} />}
+      {isOpenTwo && (
+        <ChangeAddress close={() => setIsOpenTwo(false)} onSelectAddress={handleSelectAddress} />
+      )}
 
       {/* Render based on user authentication */}
-      {token ? (isLoading ? (<SkeletonLoader/>):(
-        userData &&
-        userData.add_to_carts &&
-        userData.add_to_carts.length >0 ? (
-          <div className="container-fluid mb-5 " style={{marginTop:"80px"}}>
-            <div className="row">
-              <div className="col-md-10 col-11 mx-auto">
-                <div className="row mt-5 gx-3">
-                  {/* Left side */}
-                  <div className="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5  p-0">
-                    <div className="shadow col p-3">
-                      <h4 className=" border-bottom ">Delivery Address</h4>
+      {token ? (
+        isLoading ? (
+          <SkeletonLoader />
+        ) : (
+          userData &&
+          userData.add_to_carts &&
+          userData.add_to_carts.length > 0 ? (
+            <div className="container-fluid mb-5 " style={{ marginTop: "80px" }}>
+              <div className="row">
+                <div className="col-md-10 col-11 mx-auto">
+                  <div className="row mt-5 gx-3">
+                    {/* Left side */}
+                    <div className="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5  p-0">
+                      <div className="shadow col p-3">
+                        <h4 className=" border-bottom ">Delivery Address</h4>
 
-                      <div >
-                        {/* Display existing address or prompt to add address */}
-                        {existAddress ? (
-                          <div class="card border-0">
-                            <div class="card-body">
-                              <h5 class="card-title">{existAddress.name}</h5>
-                              <p class="card-text">
-                                {existAddress.phone}, {existAddress.phoneTwo}
-                              </p>
-                              <p class="card-text">
-                                {existAddress.address}, {existAddress.pincode},
-                                {existAddress.city}, {existAddress.state}
-                              </p>
+                        <div>
+                          {/* Display existing address or prompt to add a new address */}
+                          {existAddress && (
+                            <div className="py-3 border-bottom">
+                              <div className="fw-bold">
+                                {existAddress.name}
+                              </div>
+                              <div>{existAddress.address}</div>
+                              <div>
+                                {existAddress.state}, {existAddress.city},{" "}
+                                {existAddress.zipcode}
+                              </div>
+                              <div>Phone Number : {existAddress.phone}</div>
+                            </div>
+                          )}
+                          {!existAddress && (
+                            <div className="py-3 border-bottom">
                               <button
-                                class="btn btn-primary"
-                                onClick={() => setIsOpenTwo(true)}
+                                className="btn border border-dark fw-bold rounded-0 py-2"
+                                onClick={() => {
+                                  setIsOpen(true);
+                                  setButtonName("Add Address");
+                                }}
                               >
-                                Change
+                                <FontAwesomeIcon icon={faPlus} /> Add Address
                               </button>
                             </div>
-                          </div>
-                        ) : (
-                          <div className=" d-flex flex-column align-items-center  ">
-                            <LazyLoad>
-                            <img
-                              src="\Images\cart icon\3133337_37296.jpg"
-                              className="col-2 "
-                              alt=""
-                            />
-                            </LazyLoad>
-                          
-                            <button
-                              className="btn border-black fw-bold my-3 "
-                              onClick={() => {
-                                setIsOpen(true);
-                                setButtonName("Add Address");
-                              }}
-                            >
-                              Add Address
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                    </div>
+                          )}
 
-                    {/* Cart items */}
-                    <div className=" shadow mt-5 container p-md-2 p-0">
-                      <div className="p-3" >
-                      <h3 className="border-bottom">Cart Items</h3>
+                          <button
+                            className="btn border border-dark fw-bold rounded-0 py-2"
+                            onClick={() => {
+                              setIsOpenTwo(true);
+                            }}
+                          >
+                            <FontAwesomeIcon icon={faPlus} /> Change Address
+                          </button>
+                        </div>
                       </div>
-                    
-                      <div className="row gap-3 ">
-                      {userData &&
-                        userData.add_to_carts.map((element) => (
-                          <LazyLoad>
-                               <CartCard
+
+                      {/* Display cart items */}
+                      <div className="shadow col p-3 mt-3">
+                        {userData.add_to_carts.map((element) => (
+                          <CartCard
                             key={element.id}
                             value={element}
-                            refetch={userRefetch}
+                            token={token}
+                            userRefetch={userRefetch}
                           />
-                          </LazyLoad>
-                       
                         ))}
                       </div>
-                      
                     </div>
-                  </div>
 
-                  {/* Right side */}
-                  <div className="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
-                    <div className="right_side p-3 shadow bg-white">
-                      <h2 className="product_name mb-5">Total Amount</h2>
-                      <div className="price_indiv d-flex justify-content-between">
-                        <p>Total Product</p>
-                        <p>
-                          {userData ? (
-                            userData.add_to_carts.reduce(
-                              (acc, element) => acc + element.qty,
-                              0
-                            )
-                          ) : (
-                            <span>0</span>
-                          )}
-                        </p>
-                      </div>
-                      <div className="price_indiv d-flex justify-content-between">
-                        <p>Total Price</p>
-                        <p>{totalAmount}</p>
-                      </div>
+                    {/* Right side */}
+                    <div className="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
+                      <div className="shadow p-3">
+                        <h4 className=" border-bottom  ">
+                          Price Details
+                        </h4>
+                        {/* Price details */}
+                        <div className="pt-3">
+                          <div className="d-flex justify-content-between align-items-center">
+                            <p className="fw-bold">Price</p>
+                            <p>{totalAmount}</p>
+                          </div>
+                          <div className="d-flex justify-content-between align-items-center">
+                            <p className="fw-bold">Delivery Charges</p>
+                            <p>Free</p>
+                          </div>
+                        </div>
 
-                      <button
-                        className="btn btn-primary text-uppercase"
-                        onClick={handleOrder}
-                      >
-                        Checkout
-                      </button>
+                        {/* Total amount */}
+                        <div className="pt-3 border-top d-flex justify-content-between align-items-center">
+                          <p className="fw-bold">Total Amount</p>
+                          <p>{totalAmount}</p>
+                        </div>
+
+                        {/* Place order button */}
+                        <button
+                          className="btn w-100 btn-dark rounded-0 my-3"
+                          onClick={handleOrder}
+                        >
+                          Place Order
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ) : (
-          <NoItems
-            name={"No Items In The Cart"}
-            img={"/Images/cart icon/cart-empty.a0a3f3f6aa4cd1e5.svg"}
-          />
+          ) : (
+            <NoItems />
+          )
         )
-      )
-        
       ) : (
-        <NotLogin title={"CART ITEMS"} />
+        <NotLogin />
       )}
-     
     </>
   );
 }

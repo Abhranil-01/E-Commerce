@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import './style.scss'
 function CartCard({ value, refetch }) {
   const [loaderDisplay, setLoaderDisplay] = useState(false);
-  // console.log(value);
+  console.log('hfhfhju',value);
   // console.log(value.id);
   const token = getToken();
   const { data, isError, isLoading } = useGetSingleProductDataQuery(

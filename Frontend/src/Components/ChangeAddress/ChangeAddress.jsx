@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AddressForm from "../AddressForm/AddressForm";
 import { getToken } from "../../services/LocalStorage/LocalStorage";
 import { useGetUserQuery } from "../../services/FetchData/fetchData";
@@ -7,24 +7,14 @@ import './style.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 
-function ChangeAddress({ close }) {
+function ChangeAddress({ close, onSelectAddress }) {
   const [isOpen, setIsOpen] = useState(false);
   const [buttonName, setButtonName] = useState("");
   const token = getToken();
   const { data: userData } = useGetUserQuery(token);
 
-  const [selectedAddressId, setSelectedAddressId] = useState(() => localStorage.getItem("selectedAddressId") || "");
-
-  useEffect(() => {
-    const storedAddressId = localStorage.getItem("selectedAddressId");
-    if (storedAddressId) {
-      setSelectedAddressId(storedAddressId);
-    }
-  }, []);
-
   const handleSelectAddress = (addressId) => {
-    localStorage.setItem("selectedAddressId", addressId);
-    setSelectedAddressId(addressId);
+    onSelectAddress(addressId);
   };
 
   return (
@@ -69,7 +59,7 @@ function ChangeAddress({ close }) {
                   <AddressCard
                     key={element.id}
                     element={element}
-                    selectedAddressId={Number(selectedAddressId)}
+                    // selectedAddressId={Number(selectedAddressId)}
                     onSelectAddress={handleSelectAddress}
                     closeButton={close}
                   />
