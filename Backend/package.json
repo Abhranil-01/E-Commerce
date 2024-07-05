@@ -13,6 +13,10 @@
     "@strapi/plugin-cloud": "4.22.0",
     "@strapi/plugin-i18n": "4.22.0",
     "@strapi/plugin-users-permissions": "4.22.0",
+<<<<<<< Updated upstream
+=======
+    "@strapi/provider-upload-cloudinary": "^4.25.2",
+>>>>>>> Stashed changes
     "@strapi/strapi": "4.22.0",
     "better-sqlite3": "8.6.0",
     "pg": "^8.12.0",
