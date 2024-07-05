@@ -3,7 +3,7 @@ import "./shopCard.scss";
 import { useNavigate } from "react-router-dom";
 
 function ShopCard({ values }) {
-  console.log('OARGHOHGOUH',values.attributes.image.data[0].attributes.url);
+ console.log(values);
   const words = values.attributes.titleOne.slice(0, 22);
 
   const navigate = useNavigate();

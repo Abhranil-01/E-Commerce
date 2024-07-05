@@ -27,7 +27,7 @@ useEffect(()=>{
       }
       dispatch(setLogout(false))
 },[logOutAlert])
-
+console.log(data);
   if (isLoading) {
     return <div className='container-fluid 'style={{margin:"70px 0px"}}>
            <div className="row my-5">
