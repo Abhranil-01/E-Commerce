@@ -21,7 +21,7 @@ function Store() {
   useEffect(() => {
     dispatch(customStoreAction({ key: nametwo }));
   }, [dispatch, nametwo]);
-
+console.log(img);
   const img = useSelector((state) => state.data.img);
   const nav = useSelector((state) => state.data.navOne);
   const subCategoryId = useSelector((state) => state.data.id);
