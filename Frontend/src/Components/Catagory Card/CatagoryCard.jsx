@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import './style.scss'
 function CatagoryCard({id,title,image}) {
+  console.log(title,image);
   const navigate=useNavigate()
   const nav=title.toLowerCase()
  

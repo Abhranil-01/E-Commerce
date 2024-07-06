@@ -9,12 +9,12 @@ import {
 import { getToken } from "../../services/LocalStorage/LocalStorage";
 import { useDispatch, useSelector } from "react-redux";
 import './style.scss'
-function CartCard({ value, refetch }) {
+function CartCard({ value, userRefetch}) {
   const [loaderDisplay, setLoaderDisplay] = useState(false);
   console.log('hfhfhju',value);
   // console.log(value.id);
   const token = getToken();
-  const { data, isError, isLoading } = useGetSingleProductDataQuery(
+  const { data, isError, isLoading,refetch } = useGetSingleProductDataQuery(
     value.productId
   );
   const [DeleteCartData] = useDeleteCartDataMutation();
@@ -22,14 +22,14 @@ function CartCard({ value, refetch }) {
 
   const updateCartQuantity = async (newQty) => {
     setLoaderDisplay(true);
-    await new Promise((resolve) => setTimeout(resolve, 500)); // Delay for 1000ms
+    await new Promise((resolve) => setTimeout(resolve, 1000)); // Delay for 1000ms
     await UpdateCart({
       token: token,
       id: value.id,
       data: { qty: newQty },
     });
   
-refetch()
+userRefetch()
 
     setLoaderDisplay(false);
   };
@@ -37,18 +37,20 @@ refetch()
   const decrement = async () => {
     if (value.qty > 1) {
       updateCartQuantity(value.qty - 1);
+      refetch()
     }
   };
 
   const increment = async () => {
     if (value.qty < 10) {
       updateCartQuantity(value.qty + 1);
+      refetch()
     }
   };
 
   const handleDeleteItem = async () => {
     await DeleteCartData({ token: token, id: value.id });
-    refetch();
+    userRefetch();
   };
 
 

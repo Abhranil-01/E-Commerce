@@ -21,6 +21,9 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
     "strapi-neon-tech-db-branches": "^0.1.18",
+    "strapi-plugin-redis": "^1.1.0",
+    "strapi-plugin-rest-cache": "^4.2.9",
+    "strapi-provider-rest-cache-redis": "^4.2.9",
     "styled-components": "5.3.3"
   },
   "author": {

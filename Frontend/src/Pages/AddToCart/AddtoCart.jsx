@@ -248,7 +248,7 @@ function AddtoCart() {
               </div>
             </div>
           ) : (
-            <NoItems />
+            <NoItems img={'/Images/cart icon/9264885.jpg'} name={"No Items In Your Cart"} />
           )
         )
       ) : (
