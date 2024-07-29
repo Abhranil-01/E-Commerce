@@ -11,10 +11,11 @@ import { useDispatch } from "react-redux";
 import { setRefresh } from "../../services/UpdateSlice/UpdateSlice";
 import Review from "../../Components/Review/Review";
 import SkeletonLoader from "./SkeletonLoader";
-
+import { useNavigate} from 'react-router-dom'
 function OrderDetails({ close, id }) {
   const [productId, setProductId] = useState("");
   const [review, setReview] = useState(false);
+  const navigate=useNavigate()
   const dispatch = useDispatch();
   const token = getToken();
   const { data: orderData, refetch } = useGetCustomOrderDataQuery({
@@ -42,6 +43,17 @@ function OrderDetails({ close, id }) {
   }, [orderData]);
 
   const { data: singleProduct } = useGetSingleProductDataQuery(productId);
+
+  const handleNavigateToSingleProductPage = () => {
+    const navTitleOne = values.attributes.titleOne
+      .replace(/ /g, "-")
+      .replace("/", "-")
+      .replace("/", "-");
+    navigate(`/${values.attributes.title}-${navTitleOne}/${values.id}`);
+  };
+  useEffect(()=>{
+
+  },[singleProduct])
 
   return (
     <>
@@ -86,10 +98,21 @@ function OrderDetails({ close, id }) {
                         <div className="col-md-8">
                           <div className="card-body">
                             <h5 className="card-title">
+                              
                               {singleProduct.data.attributes.title}
                             </h5>
-                            <p className="card-text">
-                              {singleProduct.data.attributes.titleOne}
+                           
+                            <p className="card-text order-details-card-titleOne " onClick={()=>{
+                               const navTitleOne = singleProduct.data.attributes.titleOne
+                               .replace(/ /g, "-")
+                               .replace("/", "-")
+                               .replace("/", "-");
+                             navigate(`/${singleProduct.data.attributes.title}-${navTitleOne}/${singleProduct.data.id}`);
+                            }} style={{cursor:'pointer'}}>
+              
+                            {singleProduct.data.attributes.titleOne}
+                      
+                        
                             </p>
                             <p className="card-text">
                               Size: {orderData.data.attributes.size}, Qty: {orderData.data.attributes.qty}, Price: ₹{orderData.data.attributes.price}

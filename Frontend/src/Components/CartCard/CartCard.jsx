@@ -8,18 +8,19 @@ import {
 } from "../../services/FetchData/fetchData";
 import { getToken } from "../../services/LocalStorage/LocalStorage";
 import { useDispatch, useSelector } from "react-redux";
-import './style.scss'
-function CartCard({ value, userRefetch}) {
+import "./style.scss";
+import { useNavigate } from "react-router-dom";
+function CartCard({ value, userRefetch }) {
   const [loaderDisplay, setLoaderDisplay] = useState(false);
-  console.log('hfhfhju',value);
+  console.log("hfhfhju", value);
   // console.log(value.id);
   const token = getToken();
-  const { data, isError, isLoading,refetch } = useGetSingleProductDataQuery(
+  const { data, isError, isLoading, refetch } = useGetSingleProductDataQuery(
     value.productId
   );
   const [DeleteCartData] = useDeleteCartDataMutation();
   const [UpdateCart] = useUpdateCartMutation();
-
+const navigate=useNavigate()
   const updateCartQuantity = async (newQty) => {
     setLoaderDisplay(true);
     await new Promise((resolve) => setTimeout(resolve, 1000)); // Delay for 1000ms
@@ -28,8 +29,8 @@ function CartCard({ value, userRefetch}) {
       id: value.id,
       data: { qty: newQty },
     });
-  
-userRefetch()
+
+    userRefetch();
 
     setLoaderDisplay(false);
   };
@@ -37,14 +38,14 @@ userRefetch()
   const decrement = async () => {
     if (value.qty > 1) {
       updateCartQuantity(value.qty - 1);
-      refetch()
+      refetch();
     }
   };
 
   const increment = async () => {
     if (value.qty < 10) {
       updateCartQuantity(value.qty + 1);
-      refetch()
+      refetch();
     }
   };
 
@@ -52,7 +53,6 @@ userRefetch()
     await DeleteCartData({ token: token, id: value.id });
     userRefetch();
   };
-
 
   return (
     data &&
@@ -73,7 +73,22 @@ userRefetch()
                   <p className="mb-2 fs-5 fw-bold">
                     {data.data.attributes.title}
                   </p>
-                  <p className="mb-2">{data.data.attributes.titleOne}</p>
+                  <p
+                    className="mb-2 cart-details-card-titleOne"
+                    onClick={() => {
+                      const navTitleOne = data.data.attributes.titleOne
+                      
+                        .replace(/ /g, "-")
+                        .replace("/", "-")
+                        .replace("/", "-");
+                      navigate(
+                        `/${data.data.attributes.title}-${navTitleOne}/${data.data.id}`
+                      );
+                    }}
+                    style={{cursor:"pointer"}}
+                  >
+                    {data.data.attributes.titleOne}
+                  </p>
                   <p>Size: {value.size}</p>
                 </div>
               </div>
