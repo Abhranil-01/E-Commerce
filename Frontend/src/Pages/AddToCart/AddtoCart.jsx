@@ -172,7 +172,7 @@ function AddtoCart() {
                               <div>Phone Number : {existAddress.phone}</div>
                             </div>
                           )}
-                          {!existAddress && (
+                          {!existAddress ? (
                             <div className="py-3 border-bottom">
                               <button
                                 className="btn border border-dark fw-bold rounded-0 py-2"
@@ -184,9 +184,8 @@ function AddtoCart() {
                                 <FontAwesomeIcon icon={faPlus} /> Add Address
                               </button>
                             </div>
-                          )}
-
-                          <button
+                          ):(
+                            <button
                             className="btn border border-dark fw-bold rounded-0 py-2"
                             onClick={() => {
                               setIsOpenTwo(true);
@@ -194,6 +193,9 @@ function AddtoCart() {
                           >
                             <FontAwesomeIcon icon={faPlus} /> Change Address
                           </button>
+                          )}
+
+                     
                         </div>
                       </div>
 
